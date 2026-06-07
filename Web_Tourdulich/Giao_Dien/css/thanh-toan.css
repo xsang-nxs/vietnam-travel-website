@@ -1,0 +1,142 @@
+/* =======================================================
+   CSS GIAO DIỆN TRANG THANH TOÁN CAO CẤP (THANH-TOAN.CSS)
+======================================================= */
+
+/* // TIÊU ĐỀ TRANG THANH TOÁN: hiển thị tiêu đề và mô tả đầu trang */
+.checkout-page-title { margin-bottom:25px; }
+.checkout-page-title h1 { font-size:26px; color:#111; font-weight:bold; }
+.checkout-page-title p { font-size:14px; color:#666; margin-top:5px; }
+
+/* // BỐ CỤC CHECKOUT: chia form thanh toán bên trái và tóm tắt đơn bên phải */
+.checkout-grid-layout { display:grid; grid-template-columns:2.2fr 1fr; gap:30px; align-items:start; }
+.checkout-form-section { display:flex; flex-direction:column; gap:20px; }
+
+/* // CARD THANH TOÁN: khung trắng chứa từng phần nhập liệu */
+.checkout-card { background:#fff; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,.02); border:1px solid #edf2f7; overflow:hidden; }
+.checkout-card .card-head { background:#fafafa; padding:15px 20px; border-bottom:1px solid #edf2f7; }
+.checkout-card .card-head h3 { font-size:16px; color:#333; font-weight:bold; }
+.checkout-card .card-body { padding:20px; }
+
+/* // THÔNG BÁO ĐĂNG NHẬP: nhắc người dùng đăng nhập hoặc tiếp tục thanh toán */
+.login-alert-box { background:#e8f0fe; color:#1a4fa0; padding:12px 15px; border-radius:8px; font-size:13px; margin-bottom:20px; line-height:1.5; }
+
+/* // FORM INPUT: định dạng ô nhập thông tin liên hệ */
+.form-row-2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-bottom:15px; }
+.form-row-2:last-child { margin-bottom:0; }
+.input-block { display:flex; flex-direction:column; gap:6px; }
+.input-block label { font-size:13px; font-weight:bold; color:#4a5568; }
+.input-block label .req { color:#e53e3e; }
+.input-block input, textarea { width:100%; padding:12px 15px; border:1px solid #cbd5e0; border-radius:6px; font-size:14px; outline:none; background:#fafafa; transition:.2s; }
+.input-block input:focus, textarea:focus { border-color:#1a4fa0; background:#fff; box-shadow:0 0 0 3px rgba(26,79,160,.1); }
+
+/* // ĐẾM HÀNH KHÁCH: tăng giảm số lượng người lớn, trẻ em, em bé */
+.passengers-counter-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.counter-item { display:flex; justify-content:space-between; align-items:center; padding:12px 15px; border:1px solid #edf2f7; border-radius:8px; background:#fff; }
+.counter-item .c-label strong { display:block; font-size:14px; color:#2d3748; }
+.counter-item .c-label small { font-size:11px; color:#a0aec0; }
+.c-controls { display:flex; align-items:center; gap:12px; }
+.btn-c { width:28px; height:28px; border-radius:50%; border:1px solid #cbd5e0; background:#fff; cursor:pointer; font-size:16px; display:flex; justify-content:center; align-items:center; font-weight:bold; }
+.btn-c:hover { background:#edf2f7; }
+.c-num { font-size:15px; font-weight:bold; width:15px; text-align:center; color:#111; }
+
+/* // NHẬP TÊN HÀNH KHÁCH: các dòng nhập tên hành khách sinh động theo số lượng */
+.passenger-input-row { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:15px 0; border-bottom:1px dashed #edf2f7; }
+.passenger-input-row:last-child { border-bottom:none; padding-bottom:0; }
+.passenger-title-tag { font-size:14px; font-weight:bold; color:#1a4fa0; min-width:100px; }
+
+/* // SWITCH PHÒNG ĐƠN: công tắc bật/tắt phụ thu phòng đơn */
+.switch-box { display:flex; align-items:center; gap:10px; font-size:13px; color:#4a5568; }
+.switch { position:relative; display:inline-block; width:44px; height:24px; }
+.switch input { opacity:0; width:0; height:0; }
+.slider { position:absolute; cursor:pointer; top:0; left:0; right:0; bottom:0; background-color:#cbd5e0; transition:.3s; border-radius:24px; }
+.slider::before { position:absolute; content:""; height:18px; width:18px; left:3px; bottom:3px; background-color:#fff; transition:.3s; border-radius:50%; }
+input:checked + .slider { background-color:#1a4fa0; }
+input:checked + .slider::before { transform:translateX(20px); }
+
+/* // MÃ ƯU ĐÃI: đang ẩn vì chức năng mã giảm giá đã bỏ khỏi giao diện */
+.promo-code-block { display:none !important; }
+
+/* // SIDEBAR TÓM TẮT: cột phải cố định hiển thị thông tin đơn hàng */
+.checkout-summary-sidebar { position:sticky; top:100px; }
+.sticky-summary-card { background:#fff; border-radius:16px; padding:25px; box-shadow:0 4px 20px rgba(0,0,0,.05); border:1px solid #edf2f7; }
+.sticky-summary-card h3 { font-size:17px; font-weight:bold; color:#222; margin-bottom:20px; border-bottom:1px solid #edf2f7; padding-bottom:12px; }
+
+/* // TOUR MINI: ảnh nhỏ và tên tour trong phần tóm tắt đơn */
+.tour-info-mini { display:flex; gap:15px; align-items:center; margin-bottom:20px; }
+.tour-info-mini img { width:70px; height:70px; object-fit:cover; border-radius:8px; flex-shrink:0; }
+.tour-info-mini h4 { font-size:14px; font-weight:bold; color:#333; line-height:1.4; }
+.tour-info-mini .t-code { font-size:11px; color:#a0aec0; display:block; margin-top:4px; }
+
+/* // ACCORDION TÓM TẮT: mở/đóng chi tiết dịch vụ trong sidebar */
+.summary-dropdown-item { border:1px solid #edf2f7; border-radius:8px; margin-bottom:10px; overflow:hidden; }
+.drop-header { padding:12px 15px; display:flex; justify-content:space-between; align-items:center; background:#fafafa; cursor:pointer; font-size:13px; font-weight:bold; color:#4a5568; }
+.drop-header .arrow { transition:transform .3s; color:#a0aec0; }
+.drop-content { display:none; padding:15px; border-top:1px solid #edf2f7; font-size:13px; color:#4a5568; line-height:1.6; background:#fff; }
+.summary-dropdown-item.active .drop-header .arrow { transform:rotate(180deg); }
+.summary-dropdown-item.active .drop-content { display:block; }
+
+/* // CHI TIẾT CHI PHÍ: các dòng giá thành, phụ thu, tổng cộng */
+.cost-row-detail { display:flex; justify-content:space-between; font-size:13px; color:#4a5568; margin-bottom:10px; }
+.cost-row-detail:last-child { margin-bottom:0; }
+.final-total-box { display:flex; justify-content:space-between; align-items:center; margin:20px 0; padding-top:15px; border-top:1px solid #edf2f7; }
+.final-total-box span { font-size:15px; font-weight:bold; color:#111; }
+.final-total-box strong { font-size:24px; font-weight:900; color:#d32f2f; }
+
+/* // ĐIỀU KHOẢN VÀ NÚT THANH TOÁN: checkbox đồng ý và nút đặt tour */
+.terms-label { display:flex; gap:10px; align-items:flex-start; font-size:12px; color:#718096; margin-bottom:20px; cursor:pointer; line-height:1.5; }
+.terms-label a { color:#1a4fa0; text-decoration:underline; }
+.btn-submit-checkout { width:100%; padding:15px; background:#2e7d32; color:#fff; border:none; border-radius:30px; font-size:16px; font-weight:bold; cursor:pointer; box-shadow:0 4px 12px rgba(46,125,50,.3); transition:.2s; }
+.btn-submit-checkout:hover { background:#1b5e20; transform:translateY(-2px); box-shadow:0 6px 15px rgba(27,94,32,.4); }
+
+/* // HEADER CHECKOUT: logo và thanh tiến trình các bước đặt dịch vụ */
+.checkout-header { background:#fff; border-bottom:1px solid #edf2f7; padding:15px 0; box-shadow:0 2px 10px rgba(0,0,0,.03); }
+.checkout-header-container { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; padding:0 20px; }
+.checkout-logo { font-size:26px; font-weight:900; color:#1a4fa0; letter-spacing:-1px; cursor:pointer; }
+.stepper-nav { display:flex; align-items:center; gap:20px; font-size:16px; font-weight:bold; }
+.step-item { display:flex; align-items:center; gap:8px; color:#a0aec0; }
+.step-item.active { color:#1a4fa0; }
+.step-item.done { color:#4caf50; }
+.step-num { width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:#edf2f7; color:#a0aec0; font-size:14px; }
+.step-item.active .step-num { background:#1a4fa0; color:#fff; box-shadow:0 0 0 4px #e8f0fe; }
+.step-item.done .step-num { background:#4caf50; color:#fff; }
+.step-arrow { color:#cbd5e0; font-size:14px; }
+
+/* // PHƯƠNG THỨC THANH TOÁN: các ô chọn VNPay, MoMo, thẻ ngân hàng */
+.payment-methods-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:15px; margin-top:15px; margin-bottom:20px; }
+.payment-option { cursor:pointer; display:block; }
+.payment-option input[type="radio"] { display:none; }
+.payment-box-content { border:1px solid #cbd5e0; border-radius:8px; padding:20px 10px; text-align:center; background:#fff; transition:all .2s ease; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:12px; }
+.pay-logo { height:40px; display:flex; align-items:center; justify-content:center; }
+.pay-logo img { max-width:100%; max-height:38px; object-fit:contain; }
+.pay-name { font-size:14.5px; color:#4a5568; font-weight:500; }
+.payment-option input[type="radio"]:checked + .payment-box-content { border-color:#1a4fa0; background-color:#f0f4ff; }
+.payment-option input[type="radio"]:checked + .payment-box-content .pay-name { color:#1a4fa0; font-weight:bold; }
+.payment-option:hover .payment-box-content { border-color:#1a4fa0; box-shadow:0 4px 12px rgba(26,79,160,.1); }
+
+/* // NÚT QUAY VỀ TRANG CHỦ: đặt phía trên nội dung đặt tour */
+.back-home-wrapper { margin-bottom:20px; }
+.btn-back-home { border:none; background:transparent; color:#1a4fa0; font-size:15px; font-weight:700; cursor:pointer; padding:0; display:inline-flex; align-items:center; gap:6px; transition:.2s; }
+.btn-back-home:hover { color:#b82025; transform:translateX(-3px); }
+
+/* // THÔNG TIN XÁC NHẬN: căn đều họ tên, email, điện thoại, địa chỉ ở trang xác nhận */
+.confirm-info-row { display:flex; justify-content:space-between; align-items:flex-start; gap:24px; padding:8px 0; font-size:16px; }
+.confirm-info-row span { color:#4a5568; font-weight:500; min-width:120px; }
+.confirm-info-row strong { color:#111; font-weight:800; text-align:right; max-width:70%; word-break:break-word; }
+
+/* // RESPONSIVE TABLET: checkout chuyển sang một cột, phương thức thanh toán còn 2 cột */
+@media (max-width:900px) {
+    .checkout-grid-layout { grid-template-columns:1fr; }
+    .checkout-summary-sidebar { position:static; }
+    .payment-methods-grid { grid-template-columns:repeat(2,1fr); }
+    .stepper-nav { gap:10px; font-size:14px; }
+}
+
+/* // RESPONSIVE MOBILE: form, hành khách, thanh toán và xác nhận chuyển về một cột */
+@media (max-width:576px) {
+    .form-row-2, .passengers-counter-grid, .payment-methods-grid { grid-template-columns:1fr; }
+    .checkout-header-container { flex-direction:column; gap:15px; }
+    .stepper-nav { flex-wrap:wrap; justify-content:center; }
+    .passenger-input-row { flex-direction:column; align-items:flex-start; }
+    .confirm-info-row { flex-direction:column; gap:4px; }
+    .confirm-info-row strong { text-align:left; max-width:100%; }
+}

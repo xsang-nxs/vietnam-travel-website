@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Quản Trị Tour Du Lịch</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <header class="admin-header">
+        <div class="header-container" style="display: flex; justify-content: center; align-items: center; width: 100%; padding: 15px 0;">
+            <div class="logo-area" style="text-align: center; cursor: pointer;" onclick="window.location.reload();">
+                <span class="logo-text" style="font-size: 26px; font-weight: 800; color: #003c71; font-family: Montserrat, sans-serif;">The<span style="color: #b82025;">3Coachrock</span></span>
+                <span class="logo-sub" style="font-size: 13px; font-weight: bold; color: #718096; letter-spacing: 3px; margin-left: 8px;">TOURIST</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero-banner">
+        <div class="banner-overlay">
+            <h1>HỆ THỐNG QUẢN TRỊ</h1>
+        </div>
+    </div>
+
+    <div class="main-container">
+        
+        <aside class="sidebar">
+            <div class="user-panel">
+                <div class="avatar-box">
+                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Admin Avatar">
+                </div>
+                <h2 id="admin-display-name">duong pham</h2>
+                <p class="role-badge">Tài khoản Admin</p>
+            </div>
+            <nav class="sidebar-menu">
+                <button id="menu-users" class="menu-item active" onclick="switchTab('users', event)">
+                    <i>👤</i> Quản lý Users
+                </button>
+                <button id="menu-categories" class="menu-item" onclick="switchTab('categories', event)">
+                    <i>📁</i> Quản lý Danh mục
+                </button>
+                <button id="menu-tours" class="menu-item" onclick="switchTab('tours', event)">
+                    <i>🗺️</i> Quản lý Tour
+                </button>
+                <button id="menu-bookings" class="menu-item" onclick="switchTab('bookings', event)">
+                    <i>🛒</i> Quản lý Đơn hàng
+                </button>
+                <button id="menu-ticket-bookings" class="menu-item" onclick="switchTab('ticket-bookings', event)">
+                    <i>🎫</i> Quản lý Vé tham quan
+                </button>
+                <button id="menu-blogs" class="menu-item" onclick="switchTab('blogs', event)">
+                    <i>📰</i> Quản lý Blog
+                </button>
+                <button id="menu-reviews" class="menu-item" onclick="switchTab('reviews', event)">
+                    <i>⭐</i> Quản lý Đánh giá
+                </button>
+                <hr class="menu-divider">
+                <hr class="menu-divider">
+
+                <button class="menu-item view-main-btn" onclick="goToMainPage()">
+                    <i>🏠</i> Trang chủ
+                </button>
+
+                <button class="menu-item logout-btn">
+                    <i>🚪</i> Đăng xuất
+                </button>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            
+            <section id="tab-users" class="tab-content active">
+                <div class="content-card">
+                    <div class="card-header">
+                        <h3>Quản lý người dùng hệ thống</h3>
+                        <p>Xem danh sách, phân quyền hoặc cập nhật trạng thái các tài khoản khách hàng.</p>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="vietravel-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tên thành viên</th>
+                                    <th>Email</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Mật khẩu</th> <th>Vai trò</th>
+                                    <th style="text-align: center;">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="user-list-body">
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="card-footer-actions">
+                        <button class="btn-primary" onclick="openAddUserModal()">+ Thêm tài khoản mới</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tab-categories" class="tab-content" style="display: none;">
+                <div class="content-card">
+                    <div class="card-header">
+                        <h3>Quản lý Danh mục Tour</h3>
+                        <p>Thêm, sửa, xóa các loại hình / vùng miền du lịch.</p>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="vietravel-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tên Danh mục</th>
+                                    <th>Mô tả</th>
+                                    <th style="text-align: center;">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="category-list-body">
+                                </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="card-footer-actions">
+                        <button class="btn-primary" onclick="openCategoryModal()">+ Thêm danh mục mới</button>
+                    </div>
+                </div>
+            </section>
+            <section id="tab-tours" class="tab-content" style="display: none;">
+                <div class="content-card">
+                    <div class="card-header">
+                        <h3>Quản lý danh sách Tour</h3>
+                        <p>Thêm, sửa, xóa các tour du lịch hiện có trong hệ thống.</p>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="vietravel-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tên Tour</th>
+                                    <th>Giá (VNĐ)</th>
+                                    <th>Trạng thái</th>
+                                    <th style="text-align: center;">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tour-list-body">
+                                </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer-actions">
+                        <button class="btn-primary" onclick="openTourModal()">+ Thêm Tour mới</button>
+                    </div>
+                </div>
+            </section>
+            <section id="tab-bookings" class="tab-content" style="display: none;">
+                <div class="content-card">
+                    <div class="card-header">
+                        <h3>Quản lý danh sách Đơn đặt Tour</h3>
+                        <p>Xem danh sách, cập nhật trạng thái các đơn đặt tour của khách hàng.</p>
+                    </div>
+                    <div class="revenue-summary">
+                        <div class="revenue-box">
+                            <span class="revenue-label">Tổng số đơn hàng</span>
+                            <strong id="booking-total-count">0</strong>
+                        </div>
+
+                        <div class="revenue-box">
+                            <span class="revenue-label">Tổng doanh thu đơn hàng</span>
+                            <strong id="booking-total-revenue">0 đ</strong>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="vietravel-table">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã đơn</th>
+                                    <th>Tên Khách hàng</th>
+                                    <th>SĐT</th>
+                                    <th>Ngày đặt</th>
+                                    <th>Tour đăng ký</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Trạng thái</th>
+                                    <th style="text-align: center;">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="booking-list-body">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tab-ticket-bookings" class="tab-content" style="display: none;">
+                <div class="content-card">
+                    <div class="card-header">
+                        <h3>Quản lý danh sách Đơn đặt Vé tham quan</h3>
+                        <p>Xem danh sách, kiểm duyệt hoặc hủy trạng thái các đơn đặt vé điện tử (E-ticket) từ hệ thống khách hàng.</p>
+                    </div>
+                    <div class="revenue-summary">
+                        <div class="revenue-box">
+                            <span class="revenue-label">Tổng số đơn vé</span>
+                            <strong id="ticket-total-count">0</strong>
+                        </div>
+
+                        <div class="revenue-box">
+                            <span class="revenue-label">Tổng doanh thu vé tham quan</span>
+                            <strong id="ticket-total-revenue">0 đ</strong>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="vietravel-table">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã đơn vé</th>
+                                    <th>Tên Khách hàng</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Ngày đặt</th>
+                                    <th>Chi tiết vé điện tử</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Trạng thái</th>
+                                    <th style="text-align: center;">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ticket-booking-list-body">
+                                <tr>
+                                    <td colspan="9" style="text-align: center; color: #888; padding: 20px;">Đang nạp danh sách đơn vé từ máy chủ Backend...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tab-order-detail" class="tab-content" style="display: none;">
+                <div class="content-card">
+                    <div class="card-header" style="margin-bottom: 25px;">
+                        <div class="order-header-main" style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 20px;">
+                            <div class="order-header-left">
+                                <span class="label" style="font-size: 13px; color: #718096;">Mã đơn hàng:</span><br>
+                                <b id="detail-order-id" style="font-size: 24px; color: #b82025;">...</b><br>
+                                <span id="detail-order-date" style="font-size: 13px; color: #2d3748; font-weight: 600;">...</span>
+                            </div>
+                            <div class="order-header-right">
+                                <div class="info-block">
+                                    <span class="label" style="font-size: 13px; color: #718096;">Trạng thái:</span><br>
+                                    <select id="detail-order-status" style="border: 1px solid #cbd5e0; padding: 10px 15px; border-radius: 8px; width: 100%; max-width: 250px; cursor: pointer;">
+                                        <option value="pending">Chờ xác nhận</option>
+                                        <option value="confirmed">Đã xác nhận</option>
+                                        <option value="sold_out">Hết chỗ</option>
+                                        <option value="cancelled">Đã hủy</option>
+                                    </select>
+                                </div>
+                                <div class="info-block" style="margin-top: 15px;">
+                                    <span class="label" style="font-size: 13px; color: #718096;">Phương thức thanh toán:</span><br>
+                                    <span id="detail-payment-method" style="font-size: 14px; font-weight: bold; color: #2d3748;">...</span>
+                                </div>
+                            </div>
+                            <div class="order-header-total">
+                                <span class="label" style="font-size: 13px; color: #718096;">Tổng tiền:</span><br>
+                                <b id="detail-total-amount" style="font-size: 18px; color: #b82025; font-weight: bold;">0 đ</b><br>
+                                <span class="label" style="font-size: 13px; color: #718096;">Ghi chú:</span><br>
+                                <span id="detail-order-notes" style="font-size: 14px; font-weight: 500; color: #4a5568;">...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-detail-columns" style="display: grid; grid-template-columns: 2.5fr 1.5fr; gap: 30px; margin-top: 20px;">
+                        
+                        <div class="order-detail-left">
+                            
+                            <div class="info-card" style="background: #f7fafc; padding: 25px; border-radius: 12px; margin-bottom: 25px;">
+                                <h4 style="font-size: 16px; color: #003c71; margin-bottom: 15px;">Thông tin khách hàng</h4>
+                                <div class="customer-info-list" style="display: flex; flex-direction: column; gap: 10px;">
+                                    <div class="customer-info-item"><i style="color: #cbd5e0; margin-right: 10px;">👤</i> <span id="customer-info-name">...</span></div>
+                                    <div class="customer-info-item"><i style="color: #cbd5e0; margin-right: 10px;">📞</i> <span id="customer-info-phone">...</span></div>
+                                    <div class="customer-info-item"><i style="color: #cbd5e0; margin-right: 10px;">✉️</i> <span id="customer-info-email">...</span></div>
+                                    <div class="customer-info-item"><i style="color: #cbd5e0; margin-right: 10px;">📍</i> <span id="customer-info-address">...</span></div>
+                                </div>
+                            </div>
+
+                            <div class="info-card" style="margin-bottom: 25px;">
+                                <h4 style="font-size: 16px; color: #003c71; margin-bottom: 15px;">Tour đã đặt</h4>
+                                <div class="order-product-list" id="ordered-tour-container">
+                                    </div>
+                            </div>
+
+                            <div class="info-card">
+                                <div class="order-summary-block" style="border-top: 1px solid #edf2f7; padding-top: 20px; text-align: right; margin-left: auto; width: 60%; max-width: 400px; display: flex; flex-direction: column; gap: 10px;">
+                                    <div class="summary-line" style="display: flex; justify-content: space-between;">
+                                        <span class="label" style="font-size: 14px; color: #718096;">Tạm tính</span>
+                                        <span class="value" id="order-subtotal" style="font-size: 14px; font-weight: bold; color: #2d3748;">0 đ</span>
+                                    </div>
+                                    <div class="summary-line" style="display: flex; justify-content: space-between;">
+                                        <span class="label" style="font-size: 14px; color: #718096;">Phí vận chuyển</span>
+                                        <span class="value" id="order-shipping-fee" style="font-size: 14px; font-weight: bold; color: #2d3748;">0 đ</span>
+                                    </div>
+                                    <div class="summary-line summary-total" style="display: flex; justify-content: space-between; border-top: 1px solid #edf2f7; padding-top: 10px; margin-top: 10px;">
+                                        <span class="label" style="font-size: 16px; font-weight: bold; color: #2d3748;">Tổng cộng</span>
+                                        <b class="value" id="order-grand-total" style="font-size: 18px; color: #b82025; font-weight: bold;">0 đ</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="order-detail-right" style="display: flex; flex-direction: column; justify-content: space-between;">
+                            
+                            <div class="info-card" style="background: #ffffff; padding: 25px; border-radius: 12px; height: 100%;">
+                                <h4 style="font-size: 16px; color: #003c71; margin-bottom: 20px;">Thông tin giao hàng</h4>
+                                <div class="shipping-info-block" style="border-bottom: 1px solid #edf2f7; padding-bottom: 20px; margin-bottom: 20px; font-size: 14px; color: #4a5568;">
+                                    <span>Đơn vị vận chuyển:</span><br>
+                                    <b id="detail-shipping-service" style="color: #2d3748;">...</b><br><br>
+                                    <span>Dự kiến giao:</span><br>
+                                    <b id="detail-delivery-est" style="color: #2d3748;">...</b>
+                                </div>
+                                
+                                <div class="order-timeline" id="order-status-timeline">
+                                    </div>
+                            </div>
+
+                            <div class="action-btn-container" style="text-align: center; margin-top: 20px; padding: 15px; background: #fff5f5; border-radius: 12px;">
+                                <button type="button" class="btn-cancel-order" id="btn-cancel-booking-from-detail" style="border: 2px solid #e53e3e; background: #ffffff; color: #e53e3e; padding: 10px 25px; font-weight: bold; border-radius: 8px; cursor: pointer;"><i>🗑️</i> &nbsp; HỦY ĐƠN HÀNG</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tab-blogs" class="tab-content" style="display: none;">
+                <div class="content-card">
+                    <div class="card-header">
+                        <h3>Quản lý Bài viết & Cẩm nang Blog</h3>
+                        <p>Thêm, sửa, xóa các bài viết chia sẻ kinh nghiệm du lịch.</p>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="vietravel-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Tiêu đề bài viết</th>
+                                    <th>Thẻ Tag</th>
+                                    <th>Ngày đăng</th>
+                                    <th style="text-align: center;">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="blog-list-body"></tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer-actions">
+                        <button class="btn-primary" onclick="openBlogModal()">+ Thêm Bài viết mới</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tab-reviews" class="tab-content" style="display: none;">
+                <div class="content-card">
+                    <div class="card-header">
+                        <h3>Quản lý Đánh giá khách hàng</h3>
+                        <p>Kiểm duyệt, thêm mới hoặc xóa các đánh giá trải nghiệm tour.</p>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="vietravel-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Khách hàng</th>
+                                    <th>Tour / Địa điểm</th>
+                                    <th>Số sao</th>
+                                    <th>Nội dung đánh giá</th>
+                                    <th style="text-align: center;">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="review-list-body"></tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer-actions">
+                        <button class="btn-primary" onclick="openReviewModal()">+ Thêm Đánh giá mới</button>
+                    </div>
+                </div>
+            </section>
+    </div>
+
+    <div id="user-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="modal-title">Thêm tài khoản mới</h3>
+                <span class="close-modal" onclick="closeUserModal()">&times;</span>
+            </div>
+            <form id="user-form" onsubmit="saveUser(event)">
+                <input type="hidden" id="form-user-id">
+                
+                <div class="form-group">
+                    <label for="form-username">Họ tên *</label>
+                    <input type="text" id="form-username" required placeholder="Ví dụ: Nguyen Van A">
+                </div>
+                
+                <div class="form-group">
+                    <label for="form-email">Email *</label>
+                    <input type="email" id="form-email" required placeholder="Ví dụ: email@gmail.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="form-phone">Số điện thoại</label>
+                    <input type="tel" id="form-phone" placeholder="Ví dụ: 0328xxxxxx">
+                </div>
+
+                <div class="form-group">
+                    <label for="form-password">Mật khẩu tài khoản *</label>
+                    <input type="text" id="form-password" required placeholder="Nhập mật khẩu chữ thô trực tiếp...">
+                </div>
+                
+                <div class="form-group">
+                    <label for="form-role">Vai trò hệ thống</label>
+                    <select id="form-role">
+                        <option value="user">Thành viên (Customer)</option>
+                        <option value="admin">Quản trị viên (Admin)</option>
+                    </select>
+                </div>
+                
+                <div class="modal-footer-actions">
+                    <button type="button" class="btn-secondary" onclick="closeUserModal()">Hủy bỏ</button>
+                    <button type="submit" class="btn-primary">Lưu thông tin</button>
+                </div>
+
+                <div style="display: none;">
+                    <div id="pdf-admin-template" style="padding: 40px; width: 700px; font-family: Arial, sans-serif; background: #ffffff; color: #333333; border: 8px solid #003c71;">
+                        <div style="text-align: center; border-bottom: 2px solid #edf2f7; padding-bottom: 20px; margin-bottom: 20px;">
+                            <h1 style="color: #003c71; margin: 0; font-size: 28px; font-weight: bold;">THE3COACHROCK TOURIST</h1>
+                            <p style="color: #718096; margin: 5px 0 0 0; font-size: 14px; letter-spacing: 2px; font-weight: bold;">VÉ ĐIỆN TỬ XÁC NHẬN ĐẶT TOUR / E-TICKET</p>
+                        </div>
+
+                        <table style="width: 100%; margin-bottom: 30px; border-collapse: collapse;">
+                            <tr>
+                                <td style="vertical-align: top; width: 60%;">
+                                    <h3 style="color: #003c71; margin: 0 0 10px 0;">Thông tin khách hàng:</h3>
+                                    <p style="margin: 4px 0;">Họ tên: <b id="pdf-adm-name">...</b></p>
+                                    <p style="margin: 4px 0;">Điện thoại: <b id="pdf-adm-phone">...</b></p>
+                                    <p style="margin: 4px 0;">Email: <span id="pdf-adm-email">...</span></p>
+                                </td>
+                                <td style="vertical-align: top; text-align: right; width: 40%;">
+                                    <p style="margin: 4px 0;">Mã đặt chỗ: <b id="pdf-adm-id" style="color: #b82025; font-size: 16px;">...</b></p>
+                                    <p style="margin: 4px 0;">Ngày lập vé: <span id="pdf-adm-date">...</span></p>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div style="background: #f7fafc; padding: 20px; border-radius: 8px; border: 1px solid #edf2f7; margin-bottom: 30px;">
+                            <h3 style="color: #003c71; margin: 0 0 10px 0; border-bottom: 1px dashed #cbd5e0; padding-bottom: 5px;">Chi tiết dịch vụ chuyến đi</h3>
+                            <p style="font-size: 16px; font-weight: bold; color: #2d3748; margin: 8px 0;" id="pdf-adm-tour">...</p>
+                            <p style="margin: 6px 0; color: #4a5568;">Hình thức thanh toán: <span id="pdf-adm-method" style="font-weight: bold;">...</span></p>
+                            <p style="margin: 6px 0; color: #4a5568;">Trạng thái đơn hàng: <span style="color: #38a169; font-weight: bold;">Đã xác nhận hệ thống</span></p>
+                        </div>
+
+                        <div style="text-align: right; margin-bottom: 4px; padding-top: 10px; border-top: 2px solid #edf2f7;">
+                            <span style="font-size: 14px; color: #718096; font-weight: bold;">TỔNG TIỀN THANH TOÁN:</span><br>
+                            <b id="pdf-adm-total" style="font-size: 24px; color: #b82025; font-weight: 900;">0 đ</b>
+                        </div>
+
+                        <div style="margin-top: 40px; text-align: center; color: #a0aec0; font-size: 12px; border-top: 1px solid #edf2f7; padding-top: 15px;">
+                            <p>Vui lòng xuất trình file vé điện tử này tại quầy thủ tục khởi hành.</p>
+                            <p>Hệ thống quản trị điều hành hành trình - Hotline: 1900 1234</p>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div id="category-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="category-modal-title">Thêm danh mục mới</h3>
+                <span class="close-modal" onclick="closeCategoryModal()">&times;</span>
+            </div>
+            <form id="category-form" onsubmit="saveCategory(event)">
+                <input type="hidden" id="form-category-id">
+                
+                <div class="form-group">
+                    <label for="form-category-name">Tên danh mục *</label>
+                    <input type="text" id="form-category-name" required placeholder="VD: Du lịch mạo hiểm">
+                </div>
+                
+                <div class="form-group">
+                    <label for="form-category-desc">Mô tả chi tiết</label>
+                    <input type="text" id="form-category-desc" placeholder="Nhập mô tả ngắn gọn...">
+                </div>
+                
+                <div class="modal-footer-actions">
+                    <button type="button" class="btn-secondary" onclick="closeCategoryModal()">Hủy bỏ</button>
+                    <button type="submit" class="btn-primary">Lưu thông tin</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="tour-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-box" style="width: 550px;"> <div class="modal-header">
+                <h3 id="tour-modal-title">Thêm Tour mới</h3>
+                <span class="close-modal" onclick="closeTourModal()">&times;</span>
+            </div>
+            <form id="tour-form" onsubmit="saveTour(event)">
+                <input type="hidden" id="form-tour-id">
+                
+                <div class="form-group">
+                    <label>Tên Tour (Tiêu đề) *</label>
+                    <input type="text" id="form-tour-title" required placeholder="VD: Tour Đà Nẵng 3N2Đ">
+                </div>
+                
+                <div style="display: flex; gap: 15px;">
+                    <div class="form-group" style="flex: 1;">
+                        <label>Giá tiền (VNĐ) *</label>
+                        <input type="number" id="form-tour-price" required>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label>Trạng thái</label>
+                        <select id="form-tour-status">
+                            <option value="active">Đang mở (Còn chỗ)</option>
+                            <option value="sold_out">Đã bán hết</option>
+                            <option value="inactive">Tạm ngưng</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="modal-footer-actions">
+                    <button type="button" class="btn-secondary" onclick="closeTourModal()">Hủy</button>
+                    <button type="submit" class="btn-primary">Lưu Tour</button>
+                </div>
+            </form>
+        </div>
+    </div> 
+    
+    <div id="booking-detail-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-box" style="width: 550px;">
+            <div class="modal-header">
+                <h3 id="booking-modal-title">Chi tiết đơn hàng</h3>
+                <span class="close-modal" onclick="closeBookingDetailModal()">&times;</span>
+            </div>
+            
+            <div class="booking-detail-content">
+                <div class="detail-row">
+                    <span class="detail-label">Mã đơn hàng:</span> 
+                    <span id="detail-id" class="detail-value"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Khách hàng:</span> 
+                    <span id="detail-customer" class="detail-value"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Số điện thoại:</span> 
+                    <span id="detail-phone" class="detail-value"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Tour đăng ký:</span> 
+                    <span id="detail-tour" class="detail-value"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Ngày đặt:</span> 
+                    <span id="detail-date" class="detail-value"></span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Thanh toán:</span> 
+                    <span id="detail-payment" class="detail-value"></span>
+                </div>
+                <div class="detail-row" style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed #cbd5e0;">
+                    <span class="detail-label" style="font-size: 16px;">Tổng thanh toán:</span> 
+                    <span id="detail-total" class="detail-value" style="color:#d93025; font-size: 18px;"></span>
+                </div>
+                
+                <div class="form-group" style="margin-top: 25px;">
+                    <label style="color: #003c71;"><b>Cập nhật trạng thái đơn hàng:</b></label>
+                    <select id="detail-status" style="border-color: #003c71; border-width: 2px;">
+                        <option value="pending">Chờ xác nhận</option>
+                        <option value="confirmed">Đã giao hàng / Xác nhận</option>
+                        <option value="cancelled">Đã hủy</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="modal-footer-actions" style="justify-content: space-between;">
+                <button class="action-link-delete" onclick="deleteBookingFromDetail()" style="border:none; background:none;">Xóa đơn này</button>
+                
+                <div>
+                    <button type="button" class="btn-secondary" onclick="closeBookingDetailModal()">Đóng</button>
+                    <button type="button" class="btn-primary" onclick="updateBookingStatus()">Lưu trạng thái</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div id="blog-modal" class="modal-overlay" style="display: none;">
+            <div class="modal-box" style="width: 600px;">
+                <div class="modal-header">
+                    <h3 id="blog-modal-title">Thêm Bài viết mới</h3>
+                    <span class="close-modal" onclick="closeBlogModal()">&times;</span>
+                </div>
+                <form id="blog-form">
+                    <input type="hidden" id="form-blog-id">
+                    <div class="form-group">
+                        <label>Tiêu đề bài viết *</label>
+                        <input type="text" id="form-blog-title" required placeholder="VD: Khám phá Vịnh Hạ Long...">
+                    </div>
+                    <div style="display: flex; gap: 15px;">
+                        <div class="form-group" style="flex: 1;">
+                            <label>Thẻ phân loại (Tag) *</label>
+                            <input type="text" id="form-blog-tag" required placeholder="VD: Cẩm nang du lịch">
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label>Ngày đăng</label>
+                            <input type="text" id="form-blog-date" placeholder="VD: 20/05/2026">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Link hình ảnh bìa (URL) *</label>
+                        <input type="text" id="form-blog-img" required placeholder="https://...">
+                    </div>
+                    <div class="form-group">
+                        <label>Mô tả ngắn gọn nội dung *</label>
+                        <textarea id="form-blog-desc" rows="4" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e0;"></textarea>
+                    </div>
+                    <div class="modal-footer-actions">
+                        <button type="button" class="btn-secondary" onclick="closeBlogModal()">Hủy</button>
+                        <button type="submit" class="btn-primary">Lưu Bài viết</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="review-modal" class="modal-overlay" style="display: none;">
+            <div class="modal-box" style="width: 500px;">
+                <div class="modal-header">
+                    <h3 id="review-modal-title">Thêm Đánh giá mới</h3>
+                    <span class="close-modal" onclick="closeReviewModal()">&times;</span>
+                </div>
+                <form id="review-form">
+                    <input type="hidden" id="form-review-id">
+                    <div style="display: flex; gap: 15px;">
+                        <div class="form-group" style="flex: 1;">
+                            <label>Tên Khách hàng *</label>
+                            <input type="text" id="form-review-author" required placeholder="VD: Phạm Thùy Dương">
+                        </div>
+                        <div class="form-group" style="width: 150px;">
+                            <label>Đánh giá (Sao)</label>
+                            <select id="form-review-stars">
+                                <option value="⭐⭐⭐⭐⭐">5 Sao</option>
+                                <option value="⭐⭐⭐⭐">4 Sao</option>
+                                <option value="⭐⭐⭐">3 Sao</option>
+                                <option value="⭐⭐">2 Sao</option>
+                                <option value="⭐">1 Sao</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Tên Tour hoặc Địa điểm *</label>
+                        <input type="text" id="form-review-tour" required placeholder="VD: Hạ Long">
+                    </div>
+                    <div class="form-group">
+                        <label>Nội dung nhận xét *</label>
+                        <textarea id="form-review-text" rows="4" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e0;"></textarea>
+                    </div>
+                    <div class="modal-footer-actions">
+                        <button type="button" class="btn-secondary" onclick="closeReviewModal()">Hủy</button>
+                        <button type="submit" class="btn-primary">Lưu Đánh giá</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <script src="admin.js"></script>
+</body>
+</html>

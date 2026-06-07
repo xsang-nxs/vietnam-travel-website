@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đánh giá & Blog Du Lịch - The3Coachrock</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* CSS CHUYÊN BIỆT CHO TRANG ĐÁNH GIÁ & BLOG */
+        .page-bg { background-color: #f4f6f8; padding: 30px 0; min-height: 85vh; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .wrapper { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* CỤM NÚT CHUYỂN TAB SANG TRỌNG */
+        .tab-nav-container { display: flex; gap: 15px; border-bottom: 2px solid #e2e8f0; margin-bottom: 30px; padding-bottom: 2px; }
+        .tab-nav-btn { background: none; border: none; padding: 12px 25px; font-size: 16px; font-weight: bold; color: #718096; cursor: pointer; transition: 0.2s; position: relative; }
+        .tab-nav-btn:hover { color: #003c71; }
+        .tab-nav-btn.active { color: #b82025; }
+        .tab-nav-btn.active::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 4px; background-color: #b82025; border-radius: 2px; }
+
+        /* PHÂN HỆ KHỐI BÀI VIẾT BLOG */
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; }
+        .blog-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; transition: 0.3s; }
+        .blog-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.06); }
+        .blog-img-box { width: 100%; height: 200px; background: #e2e8f0; overflow: hidden; }
+        .blog-img-box img { width: 100%; height: 100%; object-fit: cover; }
+        .blog-body { padding: 20px; }
+        .blog-tag { background: #eaf2ff; color: #1a4fa0; font-size: 12px; font-weight: bold; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+        .blog-body h3 { font-size: 18px; color: #2d3748; margin: 0 0 10px 0; font-weight: 700; line-height: 1.4; }
+        .blog-body p { font-size: 14px; color: #718096; line-height: 1.5; margin: 0 0 15px 0; }
+        .blog-footer { font-size: 12.5px; color: #a0aec0; display: flex; justify-content: space-between; border-top: 1px solid #edf2f7; padding-top: 12px; }
+
+        /* PHÂN HỆ KHỐI DANH SÁCH ĐÁNH GIÁ */
+        .review-layout { display: grid; grid-template-columns: 320px 1fr; gap: 30px; align-items: flex-start; }
+        .review-summary-box { background: #fff; border-radius: 12px; padding: 25px; border: 1px solid #e2e8f0; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .big-rating { font-size: 48px; font-weight: 900; color: #b82025; margin-bottom: 5px; }
+        .stars-gold { color: #ffbc00; font-size: 18px; margin-bottom: 10px; }
+        
+        .filter-select-box { width: 100%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; font-size: 14px; margin-top: 15px; color: #4a5568; outline: none; cursor: pointer; }
+        .filter-select-box:focus { border-color: #003c71; }
+
+        .review-list { display: flex; flex-direction: column; gap: 15px; }
+        .review-card { background: #fff; border-radius: 12px; padding: 20px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .rev-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #edf2f7; padding-bottom: 10px; margin-bottom: 12px; }
+        .rev-user { display: flex; align-items: center; gap: 12px; }
+        .rev-avatar { width: 40px; height: 40px; background: #cbd5e0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff; }
+        .rev-name { font-size: 14.5px; font-weight: bold; color: #2d3748; }
+        .rev-tour-target { font-size: 12.5px; color: #1a4fa0; background: #eaf2ff; padding: 2px 8px; border-radius: 4px; font-weight: 600; display: inline-block; margin-top: 2px; }
+        .rev-content { font-size: 14.5px; color: #4a5568; line-height: 1.6; }
+        .rev-stars { color: #f6ad55; font-size: 20px; letter-spacing: 2px; white-space: nowrap; font-weight: 900;}
+    </style>
+</head>
+<body>
+
+    <div id="header-component"></div>
+
+    <main class="page-bg">
+        <div class="wrapper">
+            
+            <div class="tab-nav-container">
+                <button class="tab-nav-btn active" id="btn-tab-blog" onclick="switchMainTab('blog')">📰 Bài viết & Cẩm nang du lịch</button>
+                <button class="tab-nav-btn" id="btn-tab-review" onclick="switchMainTab('review')">⭐ Đánh giá từ khách hàng</button>
+            </div>
+
+            <div id="section-blog" class="tab-section-content">
+                
+                <style>
+                    .breadcrumb-nav { font-size: 16px; color: #1a202c; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #e2e8f0; }
+                    .breadcrumb-nav a { color: #1a202c; text-decoration: none; transition: 0.2s; }
+                    .breadcrumb-nav a:hover { color: #b82025; }
+                    .breadcrumb-nav span.separator { margin: 0 8px; color: #a0aec0; font-size: 14px; }
+                    
+                    .article-detail-box { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; }
+                    .article-title { font-size: 32px; color: #003c71; margin: 0 0 15px 0; font-weight: 800; line-height: 1.3; }
+                    .article-meta { font-size: 14px; color: #718096; margin-bottom: 25px; }
+                    .article-cover { width: 100%; max-height: 450px; object-fit: cover; border-radius: 8px; margin-bottom: 25px; }
+                    .article-content { font-size: 16.5px; color: #2d3748; line-height: 1.8; text-align: justify; }
+                    .btn-back-blog { display: inline-block; margin-bottom: 20px; background: #f1f5f9; color: #1a4fa0; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: 0.2s; }
+                    .btn-back-blog:hover { background: #e2e8f0; color: #003c71; }
+                </style>
+
+                <div class="blog-grid" id="blog-list-container">
+                    </div>
+
+                <div id="blog-detail-container" style="display: none;">
+                    <button class="btn-back-blog" onclick="backToBlogList()">🔙 Quay lại danh sách</button>
+                    
+                   <div class="article-detail-box">
+                        <div class="breadcrumb-nav" id="article-breadcrumb">
+                            <a href="main.html">Trang chủ</a> <span class="separator">»</span>
+                            <a href="#" onclick="backToBlogList()">Bài viết</a> <span class="separator">»</span>
+                            <span style="color: #b82025; font-weight: 500;" id="bc-title">Tên bài viết</span>
+                        </div>
+
+                        <h1 class="article-title" id="article-title">Tiêu đề</h1>
+                        <div class="article-meta">✍️ Đăng bởi: <b>Admin The3Coachrock</b> &nbsp;|&nbsp; 🕒 Ngày đăng: <span id="article-date"></span></div>
+                        <img src="" id="article-img" class="article-cover" alt="Cover">
+                        <div class="article-content" id="article-content">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="section-review" class="tab-section-content" style="display: none;">
+                <div class="review-layout">
+                    
+                    <aside class="review-summary-box">
+                        <div class="big-rating">4.9</div>
+                        <div class="stars-gold">⭐⭐⭐⭐⭐</div>
+                        <p style="font-size:13.5px; color:#718096; margin:0;">Dựa trên các lượt bình chọn thực tế từ khách hàng trải nghiệm hành trình.</p>
+                        
+                        <select id="review-tour-filter" class="filter-select-box">
+                            <option value="all">🔍 Xem tất cả các Tour</option>
+                        </select>
+                    </aside>
+
+                    <div class="review-list" id="review-list-container">
+                        </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-component"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/components.js"></script>
+    <script src="js/danh-gia-blog.js"></script>
+</body>
+</html>

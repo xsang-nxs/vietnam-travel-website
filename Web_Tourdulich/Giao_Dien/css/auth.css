@@ -1,0 +1,112 @@
+/* =======================================================
+   AUTH.CSS - Trang đăng nhập / đăng ký
+======================================================= */
+
+.auth-page-body { background-color: #f4f6f8; }
+
+.auth-wrapper { display: flex; flex-direction: column; align-items: center; padding: 60px 20px 100px; }
+
+.auth-logo-large { font-size: 40px; font-weight: 900; color: #1a4fa0; text-align: center; margin-bottom: 30px; letter-spacing: -1px; }
+
+.auth-logo-large p { font-size: 13px; font-weight: 600; color: #555; letter-spacing: 2px; margin-top: -5px; }
+
+.auth-box { width: 100%; max-width: 480px; background: #ffffff; padding: 40px; border-radius: 14px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); }
+
+.auth-box h2 { text-align: center; font-size: 24px; color: #222; margin-bottom: 30px; }
+
+.form-group { margin-bottom: 20px; }
+
+.form-group label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 8px; color: #333; }
+
+.required { color: #d32f2f; }
+
+.label-row { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin-bottom: 8px; }
+
+.auth-input { width: 100%; padding: 14px 15px; background: #f4f6f8; border: 1px solid transparent; border-radius: 8px; font-size: 15px; outline: none; transition: 0.25s ease; }
+
+.auth-input:focus { border-color: #1a4fa0; background: #ffffff; box-shadow: 0 0 0 3px rgba(26, 79, 160, 0.1); }
+
+.input-with-icon { position: relative; }
+
+.eye-icon { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #888; font-size: 18px; }
+
+.recaptcha-mock { display: flex; justify-content: space-between; align-items: center; background: #f9f9f9; border: 1px solid #e0e0e0; padding: 15px 20px; border-radius: 6px; margin-bottom: 25px; }
+
+.auth-btn-group { display: flex; gap: 15px; margin-bottom: 25px; }
+
+.btn-auth-primary,
+.btn-auth-outline,
+.btn-social,
+.btn-guest-login,
+.btn-reset-password { font-family: Arial, Helvetica, sans-serif !important; }
+
+.btn-auth-primary,
+.btn-auth-outline { flex: 1; padding: 14px; border-radius: 25px; font-weight: 800; font-size: 15px; cursor: pointer; transition: 0.25s ease; text-align: center; }
+
+.btn-auth-primary { background: #1a4fa0; color: #ffffff; border: none; font-size: 18px !important; font-weight: 800 !important; letter-spacing: 0.8px; line-height: 1.2; text-transform: uppercase; }
+
+.btn-auth-primary:hover { background: #123770; transform: translateY(-1px); }
+
+.btn-auth-outline { background: transparent; color: #1a4fa0; border: 1px solid #1a4fa0; }
+
+.btn-auth-outline:hover { background: #e8f0fe; }
+
+.auth-divider { text-align: center; position: relative; margin-bottom: 25px; }
+
+.auth-divider::before { content: ""; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: #e0e0e0; z-index: 1; }
+
+.auth-divider span { background: #ffffff; padding: 0 15px; color: #888; font-size: 13px; position: relative; z-index: 2; }
+
+/* GOOGLE LOGIN */
+.btn-social { width: 100%; height: 56px; border: 1px solid #d9dce3; background: #ffffff; color: #3c4043; border-radius: 30px; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 15px; transition: 0.2s ease; }
+
+.btn-social:hover { background: #f8fafc; border-color: #cbd5e0; transform: translateY(-1px); }
+
+.google-icon { width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+.google-icon svg { display: block; }
+
+/* GUEST LOGIN */
+.btn-guest-login { width: 100%; height: 54px; border: 1px dashed #cbd5e0; background: #f8fafc; color: #4a5568; border-radius: 30px; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.2s ease; margin-bottom: 18px; }
+
+.btn-guest-login:hover { background: #edf2f7; color: #1a4fa0; border-color: #1a4fa0; transform: translateY(-1px); }
+
+.guest-icon { width: 24px; height: 24px; border-radius: 50%; background: #e8f0fe; color: #1a4fa0; display: inline-flex; align-items: center; justify-content: center; font-size: 14px; }
+
+/* FORGOT PASSWORD LINK */
+.forgot-pw { background: transparent; border: none; outline: none; color: #1a4fa0; font-size: 15px; font-weight: 700; cursor: pointer; padding: 0; font-family: inherit; }
+
+.forgot-pw:hover { color: #b82025; text-decoration: underline; }
+
+/* FORGOT PASSWORD POPUP */
+.forgot-password-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.45); display: none; align-items: center; justify-content: center; z-index: 99999; padding: 20px; }
+
+.forgot-password-overlay.show { display: flex; }
+
+.forgot-password-box { width: 100%; max-width: 480px; background: #ffffff; border-radius: 20px; padding: 34px 32px; position: relative; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2); animation: forgotPopupFade 0.25s ease; }
+
+.forgot-password-box h3 { text-align: center; font-size: 26px; color: #1a4fa0; font-weight: 900; margin-bottom: 12px; }
+
+.forgot-desc { text-align: center; color: #718096; font-size: 14px; line-height: 1.6; margin-bottom: 24px; }
+
+.forgot-close-btn { position: absolute; top: 14px; right: 16px; width: 34px; height: 34px; border: none; background: #f1f5f9; border-radius: 50%; color: #4a5568; font-size: 24px; font-weight: 700; cursor: pointer; line-height: 1; transition: 0.2s; }
+
+.forgot-close-btn:hover { background: #b82025; color: #ffffff; }
+
+.btn-reset-password { width: 100%; height: 52px; border: none; border-radius: 28px; background: #1a4fa0; color: #ffffff; font-size: 16px; font-weight: 800; cursor: pointer; margin-top: 8px; transition: 0.2s ease; }
+
+.btn-reset-password:hover { background: #123770; transform: translateY(-1px); }
+
+@keyframes forgotPopupFade {
+    from { opacity: 0; transform: translateY(12px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 576px) {
+    .auth-wrapper { padding: 40px 15px 80px; }
+    .auth-logo-large { font-size: 32px; }
+    .auth-box { padding: 28px 22px; }
+    .auth-btn-group { flex-direction: column; }
+    .forgot-password-box { padding: 28px 22px; }
+    .forgot-password-box h3 { font-size: 22px; }
+}

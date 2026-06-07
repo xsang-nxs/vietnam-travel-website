@@ -1,0 +1,163 @@
+/* =======================================================
+   CSS GIAO DIỆN TRANG VÉ THAM QUAN (PHONG CÁCH VIETRAVEL)
+======================================================= */
+
+.ticket-title-box { background: #fff; padding: 20px 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 20px; }
+.ticket-title-box h1 { font-size: 24px; color: #1a4fa0; font-weight: bold; }
+
+/* Lưới thông tin phía trên */
+.ticket-top-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+.ticket-info-card { background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+.ticket-info-card h3 { font-size: 18px; color: #111; border-bottom: 1px solid #edf2f7; padding-bottom: 12px; margin-bottom: 15px; font-weight: bold; }
+.card-body-text strong { display: block; font-size: 15px; margin-bottom: 8px; color: #2d3748; }
+.card-body-text p { font-size: 14px; color: #4a5568; line-height: 1.6; margin-bottom: 10px; }
+.view-more-link { color: #1a4fa0; font-size: 13px; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 5px; }
+.view-more-link:hover { text-decoration: underline; }
+.map-placeholder { height: 180px; width: 100%; border-radius: 8px; overflow: hidden; background: #e2e8f0; }
+
+/* Bố cục phần thân chính */
+/* Khôi phục lại lưới 2 cột: Danh sách vé (2.2 phần) - Giỏ hàng (1 phần) */
+.ticket-main-layout { display: grid; grid-template-columns: 2.2fr 1fr; gap: 30px; align-items: start; }
+.ticket-list-section h2 { font-size: 20px; color: #222; margin-bottom: 20px; font-weight: bold; }
+
+/* Thanh chọn ngày (Date Selector Bar) */
+.date-selector-bar { display: flex; background: #fff; border-radius: 8px; padding: 10px; align-items: center; gap: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 20px; }
+.btn-calendar-view { background: #1a4fa0; color: #fff; border: none; padding: 12px 18px; border-radius: 6px; font-weight: bold; font-size: 14px; cursor: pointer; white-space: nowrap; }
+.date-tabs-scroll { display: flex; gap: 10px; flex: 1; overflow-x: auto; width: 100%; }
+.date-tab-item { background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 20px; text-align: center; cursor: pointer; min-width: 110px; transition: 0.2s; }
+.date-tab-item:hover { background: #edf2f7; }
+.date-tab-item.active { background: #1a4fa0; border-color: #1a4fa0; }
+.date-tab-item .day-text { display: block; font-size: 12px; color: #718096; }
+.date-tab-item .date-text { font-size: 14px; font-weight: bold; color: #2d3748; }
+.date-tab-item.active .day-text, .date-tab-item.active .date-text { color: #fff; }
+
+/* Thẻ dòng vé chi tiết */
+.ticket-row-card { background: #fff; border: 1px solid #edf2f7; border-radius: 10px; padding: 20px; margin-bottom: 15px; display: block; justify-content: space-between; align-items: center; box-shadow: 0 2px 6px rgba(0,0,0,0.02); transition: 0.2s; }
+.ticket-row-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+.package-info-left { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.package-title { font-size: 15px; font-weight: bold; color: #2d3748; line-height: 1.4; }
+.badge-combo { background: #e6fffa; color: #234e52; font-size: 12px; font-weight: bold; padding: 4px 12px; border-radius: 15px; width: fit-content; border: 1px solid #b2f5ea; }
+.package-price-right { text-align: right; display: flex; align-items: center; gap: 20px; }
+.price-tag-wrap { display: flex; flex-direction: column; }
+.price-number { font-size: 18px; font-weight: 800; color: #e53e3e; }
+.price-unit { font-size: 12px; color: #718096; }
+.btn-select-ticket { background: #f7fafc; color: #4a5568; border: 1px solid #cbd5e0; padding: 8px 22px; border-radius: 20px; font-weight: bold; font-size: 14px; cursor: pointer; transition: 0.2s; }
+.btn-select-ticket:hover { background: #1a4fa0; color: #fff; border-color: #1a4fa0; }
+
+/* =======================================================
+   CSS CHO THANH TÌM KIẾM VÀ DROPDOWN ĐỊA ĐIỂM
+======================================================= */
+.ticket-search-container { background: url('https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?q=80&w=1200') center/cover; padding: 35px 20px; border-radius: 12px; margin-bottom: 30px; display: flex; justify-content: center; position: relative; }
+.ticket-search-container::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); border-radius: 12px; }
+.ticket-search-bar { background: #fff; border-radius: 50px; display: flex; align-items: center; padding: 8px 10px 8px 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); width: 100%; max-width: 850px; position: relative; z-index: 2; }
+
+.search-input-group { display: flex; align-items: center; gap: 15px; padding-right: 25px; flex: 1; border-right: 1px solid #e0e0e0; cursor: pointer; }
+.search-input-group.date-group { border-right: none; padding-left: 20px; }
+.search-input-group .icon { font-size: 20px; color: #666; }
+
+.input-texts { display: flex; flex-direction: column; width: 100%; }
+.input-texts label { font-size: 12px; color: #555; font-weight: bold; margin-bottom: 2px;}
+.input-texts input { border: none; outline: none; font-size: 15px; color: #333; font-weight: 500; background: transparent; cursor: pointer; width: 100%;}
+.input-texts input::placeholder { color: #888; font-weight: normal;}
+
+.btn-ticket-search { background: #3451c7; color: #fff; border: none; border-radius: 30px; padding: 14px 35px; font-size: 15px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.2s; white-space: nowrap; }
+.btn-ticket-search:hover { background: #253ba3; }
+
+/* Bảng Dropdown Thương hiệu gợi ý */
+.suggested-brands-dropdown { display: none; position: absolute; top: 120%; left: 0; background: #fff; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); width: 600px; padding: 25px; z-index: 100; border: 1px solid #eee; cursor: default; }
+.suggested-brands-dropdown.show { display: block; animation: fadeIn 0.2s ease; }
+.suggested-brands-dropdown h4 { font-size: 16px; color: #111; margin-bottom: 15px; }
+
+.brand-list { display: flex; gap: 15px; }
+.brand-item { flex: 1; border: 1px solid #eee; border-radius: 8px; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.2s; }
+.brand-item:hover { border-color: #3451c7; background: #f8faff; }
+.brand-item.active { border-color: #3b71ca; background: #f8faff; }
+
+.brand-info { display: flex; flex-direction: column; }
+.brand-type { font-size: 12px; color: #888; margin-bottom: 3px;}
+.brand-name { font-size: 15px; font-weight: bold; color: #222; }
+.brand-item.active .brand-name { color: #3b71ca; }
+.brand-count { background: #f0f2f5; font-size: 12px; padding: 5px 10px; border-radius: 15px; color: #555; font-weight: 600;}
+.brand-item.active .brand-count { background: #e8f0fe; color: #3b71ca; }
+
+/* Lưới danh sách điểm đến (Chia 2 cột) */
+.dest-grid { display: none; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px; }
+.dest-grid.active { display: grid; animation: fadeIn 0.3s ease; }
+.dest-item { font-size: 14px; color: #444; padding: 10px; cursor: pointer; border-radius: 6px; transition: 0.2s; border: 1px solid transparent; }
+.dest-item:hover { background: #f0f4f9; color: #1a4fa0; font-weight: bold; border-color: #d2e3fc; }
+.dest-item span { display: block; font-size: 11px; color: #888; font-weight: normal; margin-top: 2px;}
+
+/* CSS Xử lý "Xem thêm" văn bản */
+.desc-collapsed { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 10px; transition: max-height 0.3s ease; }
+.desc-expanded { display: block; margin-bottom: 10px; }
+
+/* =======================================================
+   CSS CHO KHỐI MỞ RỘNG KHI BẤM "CHỌN VÉ" TRONG DANH SÁCH VÉ
+======================================================= */
+.ticket-detail-expand { display: none; border-top: 1px solid #edf2f7; padding-top: 20px; margin-top: 20px; animation: fadeIn 0.3s ease; }
+.ticket-row-card.expanded .ticket-detail-expand { display: block; }
+.ticket-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px;}
+
+/* Cột trái (Giá vé & Lưu ý) */
+.detail-col h5 { font-size: 15px; font-weight: bold; color: #111; margin-bottom: 10px; }
+.price-box { border: 1px solid #e2e8f0; border-radius: 20px; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.price-box span { font-size: 15px; color: #4a5568; }
+.price-box strong { font-size: 16px; color: #111; }
+.note-box { border: 1px solid #e2e8f0; border-radius: 20px; padding: 15px 20px; font-size: 14px; color: #4a5568; line-height: 1.8; }
+
+/* Cột phải (Chọn số lượng & Nút) */
+.qty-selector { background: #f7fafc; border-radius: 20px; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.qty-selector span { font-size: 15px; color: #111; }
+.qty-controls { display: flex; align-items: center; gap: 15px; }
+.btn-qty { width: 32px; height: 32px; border-radius: 50%; border: 1px solid #111; background: transparent; display: flex; justify-content: center; align-items: center; cursor: pointer; font-size: 18px; transition: 0.2s; color: #111;}
+.btn-qty:hover { background: #f0f2f5; }
+.qty-number { font-size: 16px; font-weight: bold; width: 25px; text-align: center; }
+
+.subtotal-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-weight: bold; font-size: 15px; }
+.subtotal-val { color: #e53e3e; font-size: 18px; }
+
+.action-buttons { display: flex; gap: 15px; }
+.btn-cancel { flex: 1; padding: 14px; border-radius: 25px; border: none; background: #f0f2f5; color: #4a5568; font-weight: bold; cursor: pointer; transition: 0.2s; font-size: 15px;}
+.btn-cancel:hover { background: #e2e8f0; }
+.btn-confirm { flex: 1; padding: 14px; border-radius: 25px; border: none; background: #4285f4; color: #fff; font-weight: bold; cursor: pointer; transition: 0.2s; font-size: 15px;}
+.btn-confirm:hover { background: #3367d6; }
+
+/* =======================================================
+   CSS CHO GIỎ HÀNG THU NHỎ BÊN PHẢI (MINI CART)
+======================================================= */
+/* Thanh bám trượt thông minh */
+.ticket-summary-sidebar { position: sticky; top: 90px; }
+
+/* Thẻ khung ngoài */
+.summary-widget { background: #fff; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); overflow: hidden; border: 1px solid #edf2f7; }
+
+/* Phần Header */
+.summary-header { padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; border-bottom: 1px solid transparent; transition: 0.2s;}
+.summary-header:hover { background: #f8faff; }
+.summary-header .icon { color: #555; font-size: 20px; margin-right: 10px; }
+.summary-header .title { font-weight: bold; font-size: 16px; color: #333; }
+.summary-header .arrow { font-size: 18px; color: #888; transition: transform 0.3s; }
+.summary-header.open { border-bottom-color: #edf2f7; }
+.summary-header.open .arrow { transform: rotate(180deg); }
+
+/* Phần Thân (Danh sách vé) */
+.summary-body { padding: 15px 20px; border-bottom: 1px solid #edf2f7; }
+.summary-item { position: relative; padding-left: 15px; margin-bottom: 15px; border-bottom: 1px dashed #eee; padding-bottom: 15px;}
+.summary-item:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
+.summary-item::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: #3451c7; border-radius: 4px; }
+.sum-title { font-weight: bold; font-size: 15px; color: #111; margin-bottom: 5px; line-height: 1.4; display: block;}
+.sum-meta { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #666; margin-bottom: 10px; }
+.btn-delete-item { color: #e53e3e; background: transparent; border: none; cursor: pointer; display: flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 500;}
+.btn-delete-item:hover { text-decoration: underline; }
+.sum-qty-price { display: flex; justify-content: space-between; font-size: 14px; color: #333; }
+
+/* Phần Chân (Tính tiền & Nút) */
+.summary-footer { padding: 20px; background: #fff; }
+.total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.total-row span { font-size: 20px; font-weight: bold; color: #111; }
+.total-row strong { font-size: 24px; font-weight: 900; color: #d32f2f; }
+
+.btn-checkout { width: 100%; padding: 14px; border-radius: 30px; font-size: 16px; font-weight: bold; cursor: pointer; border: none; transition: 0.2s; }
+.btn-checkout.disabled { background: #f4f6f8; color: #a0aec0; cursor: not-allowed; }
+.btn-checkout.active { background: #c53030; color: #fff; }
+.btn-checkout.active:hover { background: #9b2c2c; }

@@ -1,0 +1,526 @@
+/* Reset CSS & Google Fonts Vibe */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #2d3748;
+}
+
+/* INTERFACE HEADER */
+.admin-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 900;
+    color: #b82025; /* Đỏ rượu thương hiệu */
+    letter-spacing: 1px;
+}
+
+.logo-sub {
+    font-size: 11px;
+    font-weight: bold;
+    color: #003c71; /* Xanh Navy nhạt */
+    padding-bottom: 3px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4a5568;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 25px;
+    transition: 0.2s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #b82025;
+}
+
+/* HERO GRAPHIC BANNER Phía sau */
+.hero-banner {
+    background-image: linear-gradient(rgba(0, 60, 113, 0.6), rgba(0, 60, 113, 0.7)), url('https://images.unsplash.com/photo-1528127269322-539801943592');
+    background-size: cover;
+    background-position: center 35%;
+    height: 140px;
+    display: flex;
+    align-items: center;
+}
+
+.banner-overlay {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.banner-overlay h1 {
+    color: #ffffff;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+/* LAYOUT CONTAINER CHÍNH */
+.main-container {
+    max-width: 1200px;
+    margin: -35px auto 50px auto; /* Đẩy đè lên banner nhẹ giống ảnh */
+    display: flex;
+    gap: 30px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* CỘT SIDEBAR TRÁI */
+.sidebar {
+    width: 280px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    padding: 25px 0;
+    height: fit-content;
+}
+
+.user-panel {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.avatar-box {
+    width: 85px;
+    height: 85px;
+    margin: 0 auto 15px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #edf2f7;
+}
+
+.avatar-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-panel h2 {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #1a202c;
+    font-weight: 700;
+}
+
+.role-badge {
+    display: inline-block;
+    font-size: 11px;
+    background-color: #ebf8ff;
+    color: #2b6cb0;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+/* MENU SIDEBAR */
+.sidebar-menu {
+    padding: 15px 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-item {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #4a5568;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
+}
+
+.menu-item i {
+    font-style: normal;
+    font-size: 16px;
+}
+
+.menu-item:hover {
+    background-color: #f7fafc;
+    color: #003c71;
+}
+
+.menu-item.active {
+    background-color: #003c71; /* Xanh hoàng gia Vietravel */
+    color: #ffffff;
+}
+
+.menu-divider {
+    border: 0;
+    height: 1px;
+    background: #edf2f7;
+    margin: 10px 0;
+}
+
+.logout-btn {
+    color: #e53e3e;
+}
+.logout-btn:hover {
+    background-color: #fff5f5;
+    color: #e53e3e;
+}
+
+/* CONTENT CONTAINER CARD PHẢI */
+.content-area {
+    flex: 1;
+}
+
+.content-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    padding: 30px;
+}
+
+.card-header {
+    margin-bottom: 25px;
+}
+
+.card-header h3 {
+    font-size: 20px;
+    color: #003c71;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.card-header p {
+    font-size: 13px;
+    color: #718096;
+}
+
+/* VIETRAVEL STYLE DATA TABLE */
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.vietravel-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+}
+
+.vietravel-table th {
+    background-color: #f7fafc;
+    color: #4a5568;
+    padding: 14px 16px;
+    font-weight: 700;
+    border-bottom: 2px solid #e2e8f0;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.vietravel-table td {
+    padding: 16px;
+    border-bottom: 1px solid #edf2f7;
+    color: #2d3748;
+}
+
+.vietravel-table tr:hover td {
+    background-color: #fcfcfc;
+}
+
+/* BUTTONS ACTION GIAO DIỆN */
+.btn-primary {
+    background-color: #003c71;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 60, 113, 0.15);
+    transition: 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #002547;
+    transform: translateY(-1px);
+}
+
+.action-link-edit {
+    color: #3182ce;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.action-link-delete {
+    color: #e53e3e;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.action-link-edit:hover, .action-link-delete:hover {
+    text-decoration: underline;
+}
+
+.card-footer-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #edf2f7;
+}
+
+/* --- TRANG TRÍ HỘP THOẠI POPUP (MODAL) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Nền tối mờ phía sau */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+.modal-box {
+    background-color: #ffffff;
+    width: 450px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.modal-header h3 {
+    color: #003c71;
+    font-size: 18px;
+}
+
+.close-modal {
+    font-size: 24px;
+    cursor: pointer;
+    color: #a0aec0;
+}
+.close-modal:hover { color: #4a5568; }
+
+/* Cấu trúc các ô nhập liệu */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #4a5568;
+    margin-bottom: 6px;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.form-group input:focus, .form-group select:focus {
+    border-color: #003c71;
+    box-shadow: 0 0 0 3px rgba(0, 60, 113, 0.1);
+}
+
+.modal-footer-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.btn-secondary {
+    background-color: #e2e8f0;
+    color: #4a5568;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn-secondary:hover { background-color: #cbd5e0; }
+
+/* CSS CHI TIẾT ĐƠN HÀNG VÀ NÚT XEM */
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid #2d3748;
+    color: #2d3748;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    transition: 0.2s;
+}
+.btn-outline:hover { background-color: #edf2f7; }
+
+/* Nhãn Trạng thái (Pill badge) */
+.status-pill {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+}
+.pill-pending { background-color: #fed7d7; color: #c53030; } /* Đỏ nhạt */
+.pill-confirmed { background-color: #c6f6d5; color: #22543d; } /* Xanh lá */
+.pill-cancelled { background-color: #e2e8f0; color: #4a5568; } /* Xám */
+
+/* Dòng chi tiết trong Modal */
+.detail-row { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 12px; 
+    font-size: 14px;
+}
+.detail-label { color: #718096; }
+.detail-value { color: #2d3748; font-weight: bold; text-align: right; max-width: 60%; }
+
+/* =========================================================================
+   FIX LỖI BỐ CỤC: BẢO VỆ SIDEBAR KHÔNG BỊ BÓP MÉO DO BẢNG DỮ LIỆU QUÁ DÀI
+   ========================================================================= */
+
+/* 1. KHÓA CỨNG SIDEBAR (Menu trái) */
+/* Cố định Menu luôn luôn là 260px, tuyệt đối không cho phép thu nhỏ (flex-shrink: 0) */
+.sidebar, .admin-sidebar, .left-menu {
+    flex: 0 0 260px !important; 
+    width: 260px !important;
+    min-width: 260px !important;
+    max-width: 260px !important;
+}
+
+/* 2. ÉP KHUNG NỘI DUNG CHÍNH (Bên phải) */
+/* Lệnh min-width: 0 rất quan trọng: Nó báo cho Flexbox biết nội dung con có thể bị tràn ra ngoài, không được dãn khung */
+.main-content, .admin-content, .content-area {
+    flex: 1 1 auto !important;
+    min-width: 0 !important; 
+}
+
+/* 3. TẠO THANH CUỘN NGANG THÔNG MINH CHO KHU VỰC BẢNG */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* Tự động hiện thanh cuộn ngang nếu bảng bị dài */
+    -webkit-overflow-scrolling: touch; /* Hỗ trợ cuộn mượt trên điện thoại/ipad */
+    padding-bottom: 10px; /* Cách ra một chút để thanh cuộn không đè lên chữ */
+}
+
+/* 4. GIỚI HẠN CHỮ CHO CÁC Ô BẢNG CÓ NỘI DUNG QUÁ DÀI */
+.vietravel-table th,
+.vietravel-table td {
+    white-space: nowrap; /* Ép chữ nằm trên 1 dòng, không bị rớt dòng lộn xộn */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Tự động thêm dấu ... nếu chữ dài hơn ô */
+    max-width: 250px; /* Độ dài tối đa của 1 ô (Em có thể chỉnh số này tùy ý) */
+}
+
+/* Riêng cột Hành động (Chứa các nút Xem/Sửa/Xóa ở cuối cùng) thì để nguyên, không cắt chữ */
+.vietravel-table td:last-child,
+.vietravel-table th:last-child {
+    white-space: normal;
+    overflow: visible;
+    max-width: none;
+    min-width: 120px;
+}
+
+/* =========================
+   KHỐI THỐNG KÊ DOANH THU
+   ========================= */
+
+.revenue-summary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.revenue-box {
+    background: linear-gradient(135deg, #f7fafc, #ffffff);
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #003c71;
+    border-radius: 14px;
+    padding: 18px 20px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+}
+
+.revenue-label {
+    display: block;
+    font-size: 13px;
+    color: #718096;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.revenue-box strong {
+    display: block;
+    font-size: 22px;
+    color: #b82025;
+    font-weight: 900;
+}

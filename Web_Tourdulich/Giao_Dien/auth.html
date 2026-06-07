@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập / Đăng ký - The3Coachrock</title>
+    
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body class="auth-page-body">
+
+    <div class="auth-wrapper">
+        
+        <div class="auth-logo-large" onclick="window.location.href='main.html'" style="cursor: pointer;">
+            The3Coachcrock
+            <p>TOURIST</p>
+        </div>
+
+        <div id="login-block" class="auth-box">
+            <h2>Đăng Nhập Hệ Thống</h2>
+            
+            <form id="login-form">
+                <div class="form-group">
+                    <label>Email hoặc Số điện thoại <span class="required">*</span></label>
+                    <input type="text" id="login-account" class="auth-input" required placeholder="Nhập Email hoặc SĐT đã đăng ký...">
+                </div>
+                
+                <div class="form-group">
+                    <div class="label-row">
+                        <label for="login-password">Mật khẩu mật mã <span class="required">*</span></label>
+
+                        <button type="button" class="forgot-pw" onclick="openForgotPasswordBox()">
+                            Quên mật khẩu?
+                        </button>
+                    </div>
+                    <div class="input-with-icon">
+                        <input type="password" id="login-password" class="auth-input" required placeholder="Nhập mật khẩu an toàn...">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-auth-primary" style="width: 100%; margin-top: 10px; border: none;">ĐĂNG NHẬP NGAY</button>
+            </form>
+            
+            <div class="auth-divider" style="margin-top: 25px;">
+                <span>HOẶC</span>
+            </div>
+            
+            <button class="btn-social" type="button">
+                <span class="google-icon">
+                    <svg width="24" height="24" viewBox="0 0 48 48" aria-hidden="true">
+                        <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/>
+                        <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.2 19 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 16.3 4 9.6 8.3 6.3 14.7z"/>
+                        <path fill="#4CAF50" d="M24 44c5.2 0 10-2 13.5-5.3l-6.2-5.2C29.3 35.1 26.8 36 24 36c-5.3 0-9.8-3.3-11.4-7.9l-6.5 5C9.4 39.6 16.2 44 24 44z"/>
+                        <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.2-4.2 5.5l6.2 5.2C36.9 39 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/>
+                    </svg>
+                </span>
+
+                <span>Đăng nhập bằng Google</span>
+            </button>
+
+            <button class="btn-guest-login" type="button" onclick="continueAsGuest()">
+                <span class="guest-icon">👤</span>
+                <span>Tiếp tục với tư cách ẩn danh</span>
+            </button>
+
+            <div style="text-align: center; margin-top: 20px; font-size: 14px; color: #555;">
+                Bạn chưa có tài khoản thành viên? 
+                <span onclick="toggleForm('register')" style="color: #1a4fa0; font-weight: bold; cursor: pointer;">Đăng ký ngay</span>
+            </div>
+        </div>
+
+
+        <div id="register-block" class="auth-box" style="display: none;">
+            <h2>Đăng Ký Thành Viên</h2>
+            
+            <form id="register-form">
+                <div class="form-group">
+                    <label>Họ và tên thành viên <span class="required">*</span></label>
+                    <input type="text" id="register-name" class="auth-input" required placeholder="Ví dụ: Phạm Thùy Dương">
+                </div>
+                
+                <div class="form-group">
+                    <label>Địa chỉ Email liên lạc <span class="required">*</span></label>
+                    <input type="email" id="register-email" class="auth-input" required placeholder="Ví dụ: duongpham@gmail.com">
+                </div>
+                
+                <div class="form-group">
+                    <label>Số điện thoại di động <span class="required">*</span></label>
+                    <input type="tel" id="register-phone" class="auth-input" required placeholder="Ví dụ: 0393742xxx">
+                </div>
+                
+                <div class="form-group">
+                    <label>Thiết lập Mật khẩu chữ thô <span class="required">*</span></label>
+                    <input type="text" id="register-password" class="auth-input" required placeholder="Nhập mật khẩu (hiển thị chữ thô trực tiếp)...">
+                </div>
+                
+                <button type="submit" class="btn-auth-primary" style="width: 100%; margin-top: 10px; background-color: #b82025; border: none;">KÍCH HOẠT ĐĂNG KÝ</button>
+            </form>
+            
+            <div style="text-align: center; margin-top: 20px; font-size: 14px; color: #555;">
+                Bạn đã có tài khoản hệ thống rồi? 
+                <span onclick="toggleForm('login')" style="color: #1a4fa0; font-weight: bold; cursor: pointer;">Quay lại Đăng nhập</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- POPUP QUÊN MẬT KHẨU -->
+    <div id="forgot-password-overlay" class="forgot-password-overlay">
+        <div class="forgot-password-box">
+            <button type="button" class="forgot-close-btn" onclick="closeForgotPasswordBox()">
+                &times;
+            </button>
+
+            <h3>Đặt lại mật khẩu</h3>
+
+            <p class="forgot-desc">
+                Nhập Email hoặc Số điện thoại đã đăng ký, sau đó tạo mật khẩu mới cho tài khoản của bạn.
+            </p>
+
+            <div class="form-group">
+                <label for="forgot-account">
+                    Email hoặc Số điện thoại <span class="required">*</span>
+                </label>
+                <input
+                    type="text"
+                    id="forgot-account"
+                    class="auth-input"
+                    placeholder="Nhập Email hoặc SĐT đã đăng ký..."
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="forgot-new-password">
+                    Mật khẩu mới <span class="required">*</span>
+                </label>
+                <input
+                    type="password"
+                    id="forgot-new-password"
+                    class="auth-input"
+                    placeholder="Nhập mật khẩu mới..."
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="forgot-confirm-password">
+                    Xác nhận mật khẩu mới <span class="required">*</span>
+                </label>
+                <input
+                    type="password"
+                    id="forgot-confirm-password"
+                    class="auth-input"
+                    placeholder="Nhập lại mật khẩu mới..."
+                />
+            </div>
+
+            <button type="button" id="btn-reset-password" class="btn-reset-password">
+                Cập nhật mật khẩu
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script>
+        function toggleForm(targetBlock) {
+            const loginBlock = document.getElementById('login-block');
+            const registerBlock = document.getElementById('register-block');
+            
+            if (targetBlock === 'register') {
+                loginBlock.style.display = 'none';
+                registerBlock.style.display = 'block';
+            } else {
+                loginBlock.style.display = 'block';
+                registerBlock.style.display = 'none';
+            }
+        }
+
+        // TỰ ĐỘNG ĐỌC ĐƯỜNG DẪN URL TỪ DROPDOWN ĐỂ BẬT ĐÚNG PHÂN HỆ
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const mode = urlParams.get('mode');
+            if (mode === 'register') {
+                toggleForm('register');
+            } else {
+                toggleForm('login');
+            }
+        });
+    </script>
+    <script src="js/auth.js"></script>
+
+</body>
+</html>

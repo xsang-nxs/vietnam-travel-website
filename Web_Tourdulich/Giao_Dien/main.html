@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>The3Coachrock - Đặt Tour Du Lịch</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css"> 
+</head>
+<body>
+
+    <div id="header-component"></div>
+
+    <div class="hero" id="hero-section">
+        <div id="hero-content">
+            <h1 id="hero-title" style="font-size: 40px; margin-bottom: 15px; text-transform: uppercase;">Khám Phá Việt Nam</h1>
+            <p id="hero-desc">Hàng ngàn tour du lịch chất lượng đang chờ đón bạn</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="search-bar-modern">
+            <div class="search-item" style="flex: 0.3; align-items: center; justify-content: center;">
+                <span style="font-size: 22px; color: var(--primary);">🚩</span>
+            </div>
+            <div class="search-item">
+                <span class="label">Điểm khởi hành</span>
+                <input type="text" id="search-departure" placeholder="Tất cả">
+            </div>
+            <div class="search-item">
+                <span class="label">Điểm đến</span>
+                <input type="text" id="search-destination" placeholder="Bạn muốn đi đâu?">
+            </div>
+            <div class="search-item">
+                <span class="label">Ngày đi</span>
+                <input type="date" id="search-date">
+            </div>
+            <div class="search-item" style="border-right: none; flex: 1.2;">
+                <button id="btn-search-tours" class="btn-search">🔍 Đổi tìm kiếm</button>
+            </div>
+        </div>
+
+        <div class="results-header">
+            <div class="result-count">
+                <strong>Kết quả:</strong> <span id="result-count-text" style="color: var(--primary);">... chương trình tour</span>
+            </div>
+            <div class="sort-view-controls">
+                <span>Sắp xếp theo:</span>
+                <select id="sort-select" class="sort-dropdown">
+                    <option value="date-asc">Ngày khởi hành gần nhất</option>
+                    <option value="price-asc">Giá: Thấp đến Cao</option>
+                    <option value="price-desc">Giá: Cao đến Thấp</option>
+                </select>
+                
+                <div class="view-icons">
+                    <span id="view-grid" class="view-icon active" title="Dạng lưới">🪟</span>
+                    <span id="view-list" class="view-icon" title="Dạng danh sách">≣</span>
+                </div>
+            </div>
+        </div>
+        
+        <div id="tour-grid" class="tour-grid">
+            <h3 style="text-align: center; width: 100%; color: var(--primary); padding: 50px;">Đang tải dữ liệu...</h3>
+        </div>
+
+        <div class="fixed-actions" id="fixed-actions">
+            <a href="lien-he.html" class="action-btn call-btn" title="Liên hệ ngay">
+                <span>📞</span>
+            </a>
+            <button class="action-btn top-btn" id="btn-scroll-top" title="Về đầu trang">
+                <span>↑</span>
+            </button>
+        </div>
+    </main>
+
+    <div id="footer-component"></div>
+
+    <script src="js/components.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

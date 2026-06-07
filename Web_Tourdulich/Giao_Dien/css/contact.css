@@ -1,0 +1,80 @@
+/* contact.css: định nghĩa kiểu dáng riêng cho trang liên hệ, bao gồm hero, bố cục chính, card thông tin, form liên hệ và bản đồ */
+/* // BIẾN MÀU CHUNG: định nghĩa màu, border, shadow dùng riêng cho trang liên hệ */
+:root { --contact-primary:#1a4fa0; --contact-red:#a7352a; --contact-red-dark:#b82025; --contact-text:#2d3748; --contact-muted:#718096; --contact-border:#edf2f7; --contact-card:#fff; --contact-shadow:0 10px 30px rgba(0,0,0,.06); }
+
+/* // HERO LIÊN HỆ: tạo banner đầu trang với ảnh nền, lớp phủ tối và chữ ở giữa */
+.contact-hero { position:relative; min-height:330px; background-image:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80"); background-size:cover; background-position:center; background-repeat:no-repeat; display:flex; align-items:center; text-align:center; color:#fff; }
+.contact-hero .container { width:100%; }
+.contact-hero h1 { font-size:48px; font-weight:900; color:#fff; margin-bottom:14px; letter-spacing:1px; text-transform:uppercase; }
+.contact-hero p { font-size:19px; color:#fff; font-weight:500; }
+
+/* // BỐ CỤC CHÍNH: chia trang liên hệ thành 2 cột thông tin và form */
+.contact-page-main { padding:50px 0 70px; }
+.contact-grid { display:grid; grid-template-columns:.95fr 1.35fr; gap:35px; align-items:start; margin-bottom:45px; }
+.contact-grid > .social-contact { display:none; }
+
+/* // CARD CHUNG: định dạng khung trắng cho thông tin, form và bản đồ */
+.contact-info-card, .contact-form-card, .contact-map-card { background:var(--contact-card); border-radius:18px; border:1px solid var(--contact-border); box-shadow:var(--contact-shadow); }
+.contact-info-card, .contact-form-card { padding:34px; }
+.contact-info-card h3, .contact-form-card h3 { font-size:25px; color:var(--contact-primary); font-weight:900; margin-bottom:26px; }
+
+/* // THÔNG TIN LIÊN HỆ: căn icon và nội dung địa chỉ, hotline, email */
+.contact-info-card { display:flex; flex-direction:column; }
+.contact-info-list { display:flex; flex-direction:column; gap:26px; }
+.contact-info-list .info-item { display:grid; grid-template-columns:42px 1fr; gap:18px; align-items:flex-start; margin:0; }
+.contact-info-list .info-item .icon { width:42px; min-width:42px; height:auto; background:transparent; border-radius:0; color:var(--contact-red); font-size:34px; line-height:1; display:flex; justify-content:center; align-items:flex-start; padding-top:3px; box-shadow:none; }
+.contact-info-list .info-content p { margin:0; color:var(--contact-text); font-size:17px; line-height:1.7; }
+.contact-info-list .info-content strong { color:var(--contact-text); font-size:17px; font-weight:900; margin-right:8px; }
+.contact-info-list .info-content span { color:var(--contact-text); font-size:17px; font-weight:400; }
+
+/* // MẠNG XÃ HỘI: hiển thị các nút Facebook, Instagram, Youtube, Tiktok dạng tròn */
+.social-contact { margin-top:36px; padding-top:28px; border-top:1px solid var(--contact-border); }
+.social-contact p { color:var(--contact-text); font-weight:900; margin-bottom:16px; }
+.social-icons-row { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+.social-icon-circle { width:43px; height:43px; border-radius:50%; color:#fff; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; font-weight:900; font-size:18px; transition:.25s ease; }
+.social-icon-circle.facebook { background:#1877f2; }
+.social-icon-circle.instagram { background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); }
+.social-icon-circle.youtube { background:#f00; }
+.social-icon-circle.tiktok { background:#111; }
+.social-icon-circle:hover { transform:translateY(-4px); box-shadow:0 8px 18px rgba(0,0,0,.18); }
+
+/* // FORM LIÊN HỆ: định dạng input, select, textarea và tiêu đề phụ trong form */
+.form-subtitle { margin-top:-14px; margin-bottom:24px; color:var(--contact-muted); font-size:14px; line-height:1.6; }
+.contact-form-card form { display:flex; flex-direction:column; gap:18px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.form-group { display:flex; flex-direction:column; gap:8px; }
+.form-group label { color:var(--contact-text); font-weight:800; font-size:14px; }
+.form-group label span { color:var(--contact-red-dark); }
+.form-group input, .form-group select, .form-group textarea { width:100%; box-sizing:border-box; border:1px solid #cbd5e0; background:#f8fafc; border-radius:10px; padding:13px 15px; font-size:14px; outline:none; transition:.2s ease; font-family:inherit; }
+.form-group textarea { min-height:135px; resize:vertical; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--contact-primary); background:#fff; box-shadow:0 0 0 4px rgba(26,79,160,.1); }
+
+/* // NÚT GỬI LIÊN HỆ: tạo nút gửi tin nhắn màu xanh và đổi màu khi hover */
+.btn-submit-contact { width:100%; border:none; background:var(--contact-primary); color:#fff; font-size:15px; font-weight:900; padding:15px; border-radius:12px; cursor:pointer; transition:.2s ease; box-shadow:0 8px 18px rgba(26,79,160,.22); }
+.btn-submit-contact:hover { background:var(--contact-red-dark); transform:translateY(-2px); box-shadow:0 10px 22px rgba(184,32,37,.22); }
+
+/* // BẢN ĐỒ: định dạng khung bản đồ và tiêu đề khu vực bản đồ */
+.contact-map-card { overflow:hidden; margin-top:10px; }
+.map-title { padding:24px 28px; border-bottom:1px solid var(--contact-border); }
+.map-title h3 { font-size:22px; color:var(--contact-primary); font-weight:900; margin-bottom:6px; }
+.map-title p { color:#4a5568; font-size:15px; margin:0; }
+#contact-map-frame { width:100%; display:block; border:none; filter:saturate(.95); }
+
+/* // RESPONSIVE TABLET: khi màn hình nhỏ hơn 900px thì chuyển layout về 1 cột */
+@media (max-width:900px) {
+    .contact-hero { min-height:250px; }
+    .contact-hero h1 { font-size:34px; }
+    .contact-hero p { font-size:16px; }
+    .contact-grid { grid-template-columns:1fr; }
+    .form-row { grid-template-columns:1fr; }
+}
+
+/* // RESPONSIVE MOBILE: giảm padding, cỡ chữ và kích thước icon cho điện thoại */
+@media (max-width:576px) {
+    .contact-page-main { padding:35px 0 50px; }
+    .contact-info-card, .contact-form-card { padding:24px; }
+    .contact-info-card h3, .contact-form-card h3 { font-size:22px; }
+    .contact-info-list .info-item { grid-template-columns:34px 1fr; gap:14px; }
+    .contact-info-list .info-item .icon { width:34px; min-width:34px; font-size:28px; }
+    .contact-info-list .info-content p, .contact-info-list .info-content strong, .contact-info-list .info-content span { font-size:15px; }
+}

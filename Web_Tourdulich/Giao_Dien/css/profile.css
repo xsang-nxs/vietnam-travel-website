@@ -1,0 +1,94 @@
+/* =========================================================================
+   PROFILE.CSS - Trang hồ sơ và đơn hàng thành viên
+========================================================================= */
+
+/* // NỀN TRANG PROFILE: tạo nền xám và khoảng cách cho trang hồ sơ */
+.profile-page-bg { background-color:#f4f6f8; padding:40px 0; min-height:80vh; }
+
+/* // BỐ CỤC PROFILE: chia sidebar trái và nội dung phải */
+.profile-grid { display:grid; grid-template-columns:280px 1fr; gap:30px; max-width:1200px; margin:0 auto; padding:0 20px; }
+
+/* // SIDEBAR PROFILE: khung menu bên trái của trang cá nhân */
+.profile-sidebar { background:#fff; border-radius:12px; padding:30px 20px; box-shadow:0 4px 15px rgba(0,0,0,.03); height:fit-content; }
+
+/* // TÓM TẮT NGƯỜI DÙNG: avatar, tên và vai trò tài khoản */
+.profile-user-summary { text-align:center; padding-bottom:20px; border-bottom:1px solid #edf2f7; margin-bottom:20px; }
+.profile-avatar-circle { width:90px; height:90px; background:#e2e8f0; border-radius:50%; margin:0 auto 12px; display:flex; justify-content:center; align-items:center; overflow:hidden; }
+.profile-avatar-circle img { width:100%; height:100%; object-fit:cover; }
+.profile-user-summary h3 { font-size:16px; color:#2d3748; margin-bottom:6px; text-transform:capitalize; }
+.profile-role-pill { background:#e2e8f0; color:#4a5568; font-size:12px; font-weight:bold; padding:4px 14px; border-radius:20px; display:inline-block; }
+
+/* // MENU PROFILE: các nút chuyển tab thông tin cá nhân, đổi mật khẩu, đơn hàng */
+.profile-nav-menu { display:flex; flex-direction:column; gap:5px; }
+.profile-nav-btn { background:none; border:none; text-align:left; padding:12px 15px; font-size:14px; font-weight:600; color:#4a5568; cursor:pointer; border-radius:8px; display:flex; align-items:center; justify-content:space-between; transition:.2s; width:100%; }
+.profile-nav-btn:hover { background:#f7fafc; color:#003c71; }
+.profile-nav-btn.active { color:#b82025; background:none; }
+.profile-sub-menu { padding-left:20px; display:flex; flex-direction:column; gap:2px; margin-bottom:10px; }
+.profile-sub-item { background:none; border:none; text-align:left; padding:8px 15px; font-size:13px; font-weight:500; color:#718096; cursor:pointer; border-radius:6px; width:100%; }
+.profile-sub-item:hover, .profile-sub-item.active { color:#b82025; font-weight:bold; }
+
+/* // CARD NỘI DUNG: khung chính bên phải hiển thị form hoặc lịch sử đơn */
+.profile-content-card { background:#fff; border-radius:12px; padding:35px; box-shadow:0 4px 15px rgba(0,0,0,.03); }
+.profile-content-card h2 { font-size:22px; color:#2d3748; font-weight:bold; margin-bottom:25px; border-bottom:1px solid #edf2f7; padding-bottom:15px; }
+
+/* // FORM THÔNG TIN CÁ NHÂN: bố cục label trái và input phải */
+.profile-form-row { display:grid; grid-template-columns:140px 1fr; align-items:center; margin-bottom:20px; font-size:14px; }
+.profile-form-row label { font-weight:600; color:#4a5568; }
+.profile-input-box { width:100%; padding:10px 14px; border:1px solid #cbd5e0; border-radius:6px; font-size:14px; outline:none; transition:.2s; color:#2d3748; background:#fff; }
+.profile-input-box:focus { border-color:#003c71; box-shadow:0 0 0 3px rgba(0,60,113,.1); }
+.input-action-wrapper { display:flex; align-items:center; position:relative; width:100%; }
+.input-link-btn { position:absolute; right:15px; color:#1a4fa0; font-weight:bold; text-decoration:none; cursor:pointer; font-size:13px; }
+.input-link-btn:hover { text-decoration:underline; }
+
+/* // GIỚI TÍNH: nhóm radio chọn nam/nữ/khác */
+.gender-radio-group { display:flex; gap:30px; }
+.gender-label { display:flex; align-items:center; gap:8px; cursor:pointer; font-weight:500 !important; color:#2d3748 !important; }
+.gender-label input { width:16px; height:16px; cursor:pointer; }
+
+/* // NÚT LƯU PROFILE: nút lưu thay đổi thông tin cá nhân */
+.btn-profile-save { background-color:#b82025; color:#fff; border:none; padding:12px 40px; font-size:14px; font-weight:bold; border-radius:6px; cursor:pointer; transition:.2s; display:block; margin:30px auto 0; box-shadow:0 4px 10px rgba(184,32,37,.15); }
+.btn-profile-save:hover { background-color:#991b1e; transform:translateY(-1px); }
+
+/* // LỊCH SỬ ĐƠN HÀNG CŨ: định dạng dòng đơn hàng dạng đơn giản */
+.order-history-item { border:1px solid #edf2f7; padding:20px; border-radius:8px; margin-bottom:15px; background:#f8fafc; }
+.order-history-header { display:flex; justify-content:space-between; gap:12px; border-bottom:1px dashed #e2e8f0; padding-bottom:10px; margin-bottom:10px; font-size:13px; }
+.order-badge-status { padding:3px 10px; border-radius:12px; font-weight:bold; font-size:11px; }
+
+/* // CARD ĐƠN HÀNG: hiển thị đơn tour hoặc vé tham quan trong profile */
+.order-card { background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:20px; margin-bottom:20px; transition:all .3s ease; }
+.order-card:hover { box-shadow:0 8px 25px rgba(0,0,0,.06); border-color:#cbd5e0; transform:translateY(-2px); }
+.order-header { display:flex; justify-content:space-between; align-items:center; gap:15px; border-bottom:1px dashed #e2e8f0; padding-bottom:12px; margin-bottom:15px; }
+.order-code { font-size:14px; color:#4a5568; font-weight:600; }
+.order-status { font-size:12px; font-weight:800; padding:6px 14px; border-radius:20px; text-transform:uppercase; white-space:nowrap; }
+.order-status.success { background:#e6fffa; color:#38a169; }
+.order-status.pending { background:#fff9db; color:#d69e2e; }
+.order-status.cancelled { background:#fff5f5; color:#e53e3e; }
+.order-body { display:flex; gap:20px; align-items:flex-start; }
+.order-icon { font-size:32px; background:#f8fafc; width:65px; height:65px; display:flex; align-items:center; justify-content:center; border-radius:12px; border:1px solid #edf2f7; flex-shrink:0; }
+.order-info { flex:1; }
+.order-info h4 { margin:0 0 8px; font-size:17px; color:#1a4fa0; font-weight:700; line-height:1.4; }
+.order-info p { margin:0 0 6px; font-size:13.5px; color:#4a5568; display:flex; align-items:center; gap:8px; }
+.order-footer { display:flex; justify-content:space-between; align-items:center; border-top:1px solid #edf2f7; margin-top:15px; padding-top:15px; }
+.order-total-price { font-size:18px; font-weight:900; color:#b82025; }
+
+/* // THÔNG BÁO: danh sách thông báo trong trang profile */
+.notif-item { padding:20px 0; border-bottom:1px solid #e2e8f0; transition:background-color .2s ease; }
+.notif-item:last-child { border-bottom:none; }
+.notif-item:hover { background-color:#f8fafc; cursor:pointer; }
+.notif-title { font-size:16px; font-weight:700; color:#1a202c; margin-bottom:8px; }
+.notif-content { font-size:14.5px; color:#4a5568; line-height:1.6; margin-bottom:10px; }
+.notif-date { font-size:12.5px; color:#a0aec0; font-style:italic; }
+
+/* // RESPONSIVE TABLET: profile chuyển từ 2 cột thành 1 cột */
+@media (max-width:900px) {
+    .profile-grid { grid-template-columns:1fr; }
+    .profile-sidebar { position:static; }
+}
+
+/* // RESPONSIVE MOBILE: form và card đơn hàng chuyển về dạng dọc */
+@media (max-width:576px) {
+    .profile-content-card { padding:24px; }
+    .profile-form-row { grid-template-columns:1fr; gap:8px; }
+    .order-header, .order-footer { flex-direction:column; align-items:flex-start; }
+    .order-body { flex-direction:column; }
+}

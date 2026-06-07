@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đặt Tour Của Bạn - The3Coachrock</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/thanh-toan.css">
+</head>
+<body>
+
+    <header class="checkout-header">
+        <div class="checkout-header-container">
+            <div class="checkout-logo">The3Coachrock</div>
+            <div class="stepper-nav">
+                <div class="step-item active"><span class="step-num">1</span> Nhập thông tin</div>
+                <div class="step-arrow">❯</div>
+                <div class="step-item"><span class="step-num">2</span> Thanh toán</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="margin-top: 30px;">
+
+        <div class="back-home-wrapper">
+            <button type="button" class="btn-back-home" onclick="window.location.href='main.html'">
+                ← Quay về trang chủ
+            </button>
+        </div>
+
+        <div class="checkout-page-title">
+            <h1>Đặt tour của bạn</h1>
+            <p>Hãy điền đầy đủ các thông tin chi tiết dưới đây trước khi tiến hành thanh toán đơn hàng.</p>
+        </div>
+
+        <div class="checkout-grid-layout">
+            
+            <div class="checkout-form-section">
+                
+                <div class="checkout-card">
+                    <div class="card-head"><h3>Thông tin liên lạc</h3></div>
+                    <div class="card-body">
+                        <div class="login-alert-box">
+                            💡 <b>Đăng nhập</b> để nhận ưu đãi, tích lũy điểm và quản lý đơn hàng dễ dàng hơn!
+                        </div>
+                        <div class="form-row-2">
+                            <div class="input-block">
+                                <label>Họ tên <span class="req">*</span></label>
+                                <input type="text" id="contact-name" placeholder="Ví dụ: Nguyễn Văn A">
+                            </div>
+                            <div class="input-block">
+                                <label>Số điện thoại <span class="req">*</span></label>
+                                <input type="text" id="contact-phone" placeholder="Ví dụ: 0901234567">
+                            </div>
+                        </div>
+                        <div class="form-row-2">
+                            <div class="input-block">
+                                <label>Email <span class="req">*</span></label>
+                                <input type="email" id="contact-email" placeholder="Ví dụ: email@example.com">
+                            </div>
+                            <div class="input-block">
+                                <label>Địa chỉ</label>
+                                <input type="text" id="contact-address" placeholder="Ví dụ: 190 Pasteur, Quận 3, TP.HCM">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-card">
+                    <div class="card-head"><h3>Hành khách</h3></div>
+                    <div class="card-body">
+                        <div class="passengers-counter-grid">
+                            <div class="counter-item">
+                                <div class="c-label">
+                                    <strong>Người lớn</strong>
+                                    <small>Từ 12 tuổi trở lên</small>
+                                </div>
+                                <div class="c-controls">
+                                    <button class="btn-c" onclick="updatePassengerQty('adult', -1)">-</button>
+                                    <span class="c-num" id="qty-adult">1</span>
+                                    <button class="btn-c" onclick="updatePassengerQty('adult', 1)">+</button>
+                                </div>
+                            </div>
+                            <div class="counter-item">
+                                <div class="c-label">
+                                    <strong>Trẻ em</strong>
+                                    <small>Từ 5 đến 11 tuổi</small>
+                                </div>
+                                <div class="c-controls">
+                                    <button class="btn-c" onclick="updatePassengerQty('child', -1)">-</button>
+                                    <span class="c-num" id="qty-child">0</span>
+                                    <button class="btn-c" onclick="updatePassengerQty('child', 1)">+</button>
+                                </div>
+                            </div>
+                            <div class="counter-item">
+                                <div class="c-label">
+                                    <strong>Trẻ nhỏ</strong>
+                                    <small>Từ 2 đến 4 tuổi</small>
+                                </div>
+                                <div class="c-controls">
+                                    <button class="btn-c" onclick="updatePassengerQty('toddler', -1)">-</button>
+                                    <span class="c-num" id="qty-toddler">0</span>
+                                    <button class="btn-c" onclick="updatePassengerQty('toddler', 1)">+</button>
+                                </div>
+                            </div>
+                            <div class="counter-item">
+                                <div class="c-label">
+                                    <strong>Em bé</strong>
+                                    <small>Dưới 2 tuổi</small>
+                                </div>
+                                <div class="c-controls">
+                                    <button class="btn-c" onclick="updatePassengerQty('infant', -1)">-</button>
+                                    <span class="c-num" id="qty-infant">0</span>
+                                    <button class="btn-c" onclick="updatePassengerQty('infant', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-card">
+                    <div class="card-head"><h3>Thông tin hành khách</h3></div>
+                    <div class="card-body" id="dynamic-passenger-inputs">
+                        </div>
+                </div>
+
+                <div class="checkout-card">
+                    <div class="card-head"><h3>Ghi chú</h3></div>
+                    <div class="card-body">
+                        <textarea id="checkout-notes" rows="4" placeholder="Vui lòng cho chúng tôi biết nếu Quý khách có yêu cầu đặc biệt hoặc lưu ý ăn chay, dị ứng..."></textarea>
+                    </div>
+                </div>
+
+            </div>
+
+            <aside class="checkout-summary-sidebar">
+                <div class="sticky-summary-card">
+                    <h3>Tóm tắt đơn hàng</h3>
+                    
+                    <div class="tour-info-mini">
+                        <img id="sum-tour-img" src="https://via.placeholder.com/80" alt="Thumb">
+                        <div>
+                            <h4 id="sum-tour-title">Đang tải thông tin chuyến đi...</h4>
+                            <span id="sum-tour-code" class="t-code">Mã đơn: ...</span>
+                        </div>
+                    </div>
+
+                    <div class="summary-dropdown-item">
+                        <div class="drop-header" onclick="this.parentElement.classList.toggle('active')">
+                            <span>✈️ Thông tin chuyến bay</span>
+                            <span class="arrow">⌄</span>
+                        </div>
+                        <div class="drop-content">
+                            <p><b>Đi:</b> Chuyến bay VU638 lúc 08:35</p>
+                            <p><b>Về:</b> Chuyến bay VU639 lúc 17:00</p>
+                            <p>Hãng hàng không: Vietravel Airlines</p>
+                        </div>
+                    </div>
+
+                    <div class="summary-dropdown-item active">
+                        <div class="drop-header" onclick="this.parentElement.classList.toggle('active')">
+                            <span>💵 Chi tiết chi phí</span>
+                            <span class="arrow">⌄</span>
+                        </div>
+                        <div class="drop-content" id="price-detail-rows">
+                            </div>
+                    </div>
+
+                    <div class="final-total-box">
+                        <span>Tổng tiền</span>
+                        <strong id="final-total-price">0đ</strong>
+                    </div>
+
+                    <label class="terms-label">
+                        <input type="checkbox" id="chk-terms" checked>
+                        <span>Tôi đồng ý với <a href="#">Chính sách bảo mật dữ liệu</a> và <a href="#">Các điều khoản dịch vụ</a>.</span>
+                    </label>
+
+                    <button class="btn-submit-checkout" id="btn-final-pay">
+                        HOÀN TẤT ĐẶT TOUR ĐAY ➔
+                    </button>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <div id="footer-component"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/components.js"></script>
+    <script src="js/thanh-toan.js"></script>
+</body>
+</html>

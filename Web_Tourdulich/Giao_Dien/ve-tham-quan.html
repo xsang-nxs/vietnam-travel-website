@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Vé Tham Quan & Vui Chơi - The3Coachrock</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ticket.css">
+</head>
+<body>
+
+    <div id="header-component"></div>
+
+    <main class="container" style="margin-top: 25px;">
+        
+        <div class="ticket-search-container">
+            <div class="ticket-search-bar">
+                
+                <div class="search-input-group location-group" id="ticket-loc-group">
+                    <span class="icon">📍</span>
+                    <div class="input-texts">
+                        <label>Địa điểm</label>
+                        <input type="text" placeholder="Địa điểm bất kỳ..." id="ticket-location-input" readonly>
+                    </div>
+                    
+                    <div class="suggested-brands-dropdown" id="suggested-brands">
+                        <h4>Thương hiệu gợi ý</h4>
+                        <div class="brand-list">
+                            <div class="brand-item active" data-target="vinwonders-list">
+                                <div class="brand-info">
+                                    <span class="brand-type">Điểm tham quan</span>
+                                    <span class="brand-name">VinWonders</span>
+                                </div>
+                                <span class="brand-count">📍 8 Địa điểm</span>
+                            </div>
+                            <div class="brand-item" data-target="sunworld-list">
+                                <div class="brand-info">
+                                    <span class="brand-type">Điểm tham quan</span>
+                                    <span class="brand-name">Sunworld</span>
+                                </div>
+                                <span class="brand-count">📍 9 Địa điểm</span>
+                            </div>
+                        </div>
+
+                        <div class="destinations-area">
+                            <h5 style="margin: 15px 0 10px; font-size: 15px; color: #111;">Điểm đến Quý khách có thể tìm kiếm:</h5>
+                            
+                            <div class="dest-grid active" id="vinwonders-list">
+                                <div class="dest-item">VinWonders Cửa Hội</div>
+                                <div class="dest-item">Công viên Grand Park</div>
+                                <div class="dest-item">Vinpearl Hotel Bắc Ninh</div>
+                                <div class="dest-item">VinWonders Nam Hội An</div>
+                                <div class="dest-item">Vinhomes Cần Giờ</div>
+                                <div class="dest-item">VinWonders Phú Quốc</div>
+                                <div class="dest-item">VinWonders Nha Trang</div>
+                                <div class="dest-item">Nha Trang Hòn Tằm</div>
+                            </div>
+
+                            <div class="dest-grid" id="sunworld-list">
+                                <div class="dest-item">Sun World Bà Nà Hills<br><span>Đà Nẵng</span></div>
+                                <div class="dest-item">Sun World Hạ Long<br><span>Quảng Ninh</span></div>
+                                <div class="dest-item">Sun World Hòn Thơm<br><span>Phú Quốc</span></div>
+                                <div class="dest-item">Sun World Bà Đen Mountain<br><span>Tây Ninh</span></div>
+                                <div class="dest-item">Sun World Cát Bà<br><span>Hải Phòng</span></div>
+                                <div class="dest-item">SunWorld Holding<br><span>Đà Nẵng</span></div>
+                                <div class="dest-item">Sun World Hà Nam<br><span>Hà Nam</span></div>
+                                <div class="dest-item">Sun World Sầm Sơn<br><span>Thanh Hóa</span></div>
+                                <div class="dest-item">Sun World Fansipan Legend<br><span>Lào Cai</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="search-input-group date-group">
+                    <span class="icon">📅</span>
+                    <div class="input-texts">
+                        <label>Ngày đi</label>
+                        <input type="date" id="ticket-date-input" style="color: #1a4fa0; font-weight: bold; font-size: 14px;">
+                    </div>
+                </div>
+
+                <button class="btn-ticket-search" id="btn-search-attraction">🔍 Tìm kiếm</button>
+            </div>
+        </div>
+
+        <div class="ticket-title-box">
+            <h1 id="page-attraction-title">VinWonders Phú Quốc</h1>
+            <p id="page-attraction-date" style="color:#666; font-size: 14px; margin-top:5px;">Vui lòng chọn ngày để xem giá chính xác</p>
+        </div>
+
+        <div class="ticket-top-grid">
+            <div class="ticket-info-card">
+                <h3>Địa điểm nổi bật</h3>
+                <div class="card-body-text">
+                    <strong id="info-attraction-title">VinWonders Phú Quốc</strong>
+                    
+                    <div id="attraction-desc-content" class="desc-collapsed">
+                        <p>Công viên chủ đề lớn nhất Việt Nam, sở hữu 6 phân khu lớn lấy cảm hứng từ các nền văn minh nổi tiếng của nhân loại và các giai thoại cổ tích thế giới.</p>
+                        <p>03 điểm nhấn không thể bỏ lỡ trong số các trò chơi cảm giác mạnh, thế giới lốc xoáy và cung điện hải vương hình rùa khổng lồ.</p>
+                    </div>
+                    
+                    <a href="javascript:void(0);" id="btn-read-more" class="view-more-link">Xem thêm ›</a>
+                </div>
+            </div>
+            
+            <div class="ticket-info-card">
+                <h3>Vị trí</h3>
+                <div class="map-placeholder">
+                    <iframe id="attraction-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3926.23467645068!2d103.85465241530932!3d10.339121692618991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a78c7ba286f059%3A0xc3ab0f8fc99a5e44!2sVinWonders%20Ph%C3%BA%20Qu%E1%BB%91c!5e0!3m2!1svi!2s!4v1684391200000!5m2!1svi!2s" width="100%" height="100%" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="ticket-main-layout">
+            
+            <div class="ticket-list-section">
+                <h2>Danh sách vé</h2>
+                <div class="ticket-packages-container" id="ticket-packages-wrap"></div>
+            </div>
+
+            <div class="ticket-summary-sidebar">
+                <div class="summary-widget">
+                    
+                    <div class="summary-header" onclick="toggleSummaryBody()">
+                        <div style="display: flex; align-items: center;">
+                            <span class="icon">🎫</span>
+                            <span class="title">Thông tin vé tham quan</span>
+                        </div>
+                        <span class="arrow" id="summary-arrow">⌄</span>
+                    </div>
+                    
+                    <div class="summary-body" id="summary-body" style="display: none;">
+                        <div id="summary-items-container"></div>
+                    </div>
+                    
+                    <div class="summary-footer">
+                        <div class="total-row">
+                            <span>Tổng tiền</span>
+                            <strong id="summary-total-price">0đ</strong>
+                        </div>
+                        <button class="btn-checkout disabled" id="btn-checkout" disabled>Chọn vé</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-component"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="js/components.js"></script>
+    <script src="js/ticket.js"></script>
+</body>
+</html>

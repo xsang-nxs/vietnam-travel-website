@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Xác Nhận Thanh Toán - The3Coachrock</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/thanh-toan.css"> 
+    <style>
+        .confirm-card { background: #fff; border-radius: 12px; border: 1px solid #edf2f7; padding: 25px; margin-bottom: 20px;}
+        .confirm-card h3 { font-size: 18px; color: #111; margin-bottom: 20px; border-bottom: 1px solid #edf2f7; padding-bottom: 15px; }
+        .data-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px; }
+        .data-row span { color: #666; }
+        .data-row strong { color: #222; text-align: right; max-width: 60%;}
+        .text-red { color: #d32f2f !important; font-weight: bold; }
+        
+        .payment-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px;}
+        .pay-method { border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px 10px; text-align: center; cursor: pointer; transition: 0.2s; font-size: 13px; color: #555;}
+        .pay-method:hover { border-color: #1a4fa0; background: #f8faff;}
+        .pay-method.active { border-color: #1a4fa0; background: #e8f0fe; font-weight: bold; color: #1a4fa0;}
+        .pay-method img { height: 26px; object-fit: contain; margin-bottom: 8px; display: block; margin-left: auto; margin-right: auto;}
+    </style>
+</head>
+<body>
+
+    <header class="checkout-header">
+        <div class="checkout-header-container">
+            <div class="checkout-logo" onclick="window.location.href='main.html'" style="cursor: pointer;">The3Coachrock</div>
+            <div class="stepper-nav">
+                <div class="step-item done"><span class="step-num">✔</span> Nhập thông tin</div>
+                <div class="step-arrow">❯</div>
+                <div class="step-item active"><span class="step-num">2</span> Thanh toán</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="margin-top: 30px;">
+        <div class="back-home-wrapper">
+            <button type="button" class="btn-back-home" onclick="window.location.href='main.html'">
+                ← Quay về trang chủ
+            </button>
+        </div>
+        <div class="checkout-grid-layout">
+            
+            <div class="checkout-form-section">
+                
+                <div class="confirm-card">
+                    <h3>Thông tin liên lạc</h3>
+                    <div class="data-row"><span>Họ tên:</span> <strong id="conf-name">...</strong></div>
+                    <div class="data-row"><span>Email:</span> <strong id="conf-email">...</strong></div>
+                    <div class="data-row"><span>Điện thoại:</span> <strong id="conf-phone">...</strong></div>
+                    <div class="data-row"><span>Địa chỉ:</span> <strong id="conf-address">...</strong></div>
+                </div>
+
+                <div class="confirm-card">
+                    <h3>Chi tiết booking</h3>
+                    <div class="data-row"><span>Mã đặt chỗ:</span> <strong class="text-red" id="conf-code">...</strong></div>
+                    <div class="data-row"><span>Ngày tạo:</span> <strong id="conf-date">...</strong></div>
+                    <div class="data-row"><span>Trị giá booking:</span> <strong id="conf-total">...</strong></div>
+                    <div class="data-row"><span>Tình trạng:</span> <strong>Chờ hệ thống xác nhận</strong></div>
+                    <div class="data-row">
+                        <span>Thời hạn thanh toán:</span> 
+                        <strong class="text-red">Theo giờ Việt Nam. Booking sẽ tự động hủy nếu quá thời hạn.</strong>
+                    </div>
+                </div>
+
+                <div class="confirm-card">
+                    <h3>Chọn phương thức thanh toán</h3>
+                    
+                    <div class="payment-methods-grid">
+                        
+                        <label class="payment-option">
+                            <input type="radio" name="payment_method" value="qr" data-type="vnpay" checked>
+                            <div class="payment-box-content">
+                                <img src="images/Logo FA-14.png" style="height:25px;">
+                                <span style="font-size: 13px; margin-top: 5px;">VNPay QR</span>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment_method" value="qr" data-type="momo">
+                            <div class="payment-box-content">
+                                <img src="https://static.mservice.io/img/logo-momo.png" style="height:25px;">
+                                <span style="font-size: 13px; margin-top: 5px;">MoMo</span>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment_method" value="qr" data-type="zalopay">
+                            <div class="payment-box-content">
+                                <img src="images/Logo FA-13.png" style="height:25px;">
+                                <span style="font-size: 13px; margin-top: 5px;">ZaloPay</span>
+                            </div>
+                        </label>
+
+                        <label class="payment-option">
+                            <input type="radio" name="payment_method" value="card" data-type="visa">
+                            <div class="payment-box-content">
+                                <img src="images/Logo FA-16.png" style="height:25px;">
+                                <span style="font-size: 13px; margin-top: 5px;">Thẻ Visa</span>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment_method" value="card" data-type="mastercard">
+                            <div class="payment-box-content">
+                                <img src="images/Logo FA-15.png" style="height:25px;">
+                                <span style="font-size: 13px; margin-top: 5px;">Mastercard</span>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment_method" value="card" data-type="jcb">
+                            <div class="payment-box-content">
+                                <img src="https://cdn.worldvectorlogo.com/logos/jcb.svg" style="height:25px;">
+                                <span style="font-size: 13px; margin-top: 5px;">Thẻ JCB</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div id="payment-display-area" style="display: none; margin-top: 20px; border: 1px dashed #cbd5e0; padding: 20px; border-radius: 12px; background: #f8fafc;">
+                        
+                        <div id="area-qr" style="display: none; text-align: center;">
+                            <p style="font-weight: bold; color: #1a4fa0; margin-bottom: 15px;">Vui lòng quét mã QR dưới đây để thanh toán</p>
+                            <img id="img-qr" src="" alt="Mã QR" style="width: 200px; height: 200px; border: 4px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 12px; object-fit: cover;">
+                            <h4 id="qr-name" style="margin-top: 15px; font-weight: 900; font-size: 18px;"></h4>
+                            <p style="font-size: 13px; color: #718096; margin-top: 5px;">Hệ thống sẽ tự động xác nhận sau khi giao dịch thành công.</p>
+                        </div>
+
+                        <div id="area-card" style="display: none;">
+                            <h4 style="margin-bottom: 15px; color: #1a4fa0;">Nhập thông tin thẻ quốc tế</h4>
+                            <div style="display: flex; flex-direction: column; gap: 15px;">
+                                <div>
+                                    <label style="display:block; margin-bottom:5px; font-weight:bold; font-size:13px; color:#4a5568;">Số thẻ (16 chữ số)</label>
+                                    <input type="text" placeholder="1234 5678 1234 5678" maxlength="19" style="width: 100%; padding: 12px; border: 1px solid #cbd5e0; border-radius: 6px; box-sizing: border-box;">
+                                </div>
+                                <div style="display: flex; gap: 15px;">
+                                    <div style="flex: 1;">
+                                        <label style="display:block; margin-bottom:5px; font-weight:bold; font-size:13px; color:#4a5568;">Ngày hết hạn (MM/YY)</label>
+                                        <input type="text" placeholder="MM/YY" maxlength="5" style="width: 100%; padding: 12px; border: 1px solid #cbd5e0; border-radius: 6px; box-sizing: border-box;">
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <label style="display:block; margin-bottom:5px; font-weight:bold; font-size:13px; color:#4a5568;">Mã CVV</label>
+                                        <input type="password" placeholder="***" maxlength="3" style="width: 100%; padding: 12px; border: 1px solid #cbd5e0; border-radius: 6px; box-sizing: border-box;">
+                                    </div>
+                                </div>
+                            </div>
+                            <p style="font-size: 12px; color: #38a169; margin-top: 15px;"><i>🔒 Thông tin thẻ được mã hóa bảo mật chuẩn quốc tế PCI-DSS</i></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <aside class="checkout-summary-sidebar">
+                <div class="sticky-summary-card">
+                    <h3>Phiếu xác nhận booking</h3>
+                    <div class="tour-info-mini">
+                        <img id="sum-tour-img" src="https://via.placeholder.com/80" alt="Thumb">
+                        <div>
+                            <h4 id="sum-tour-title">Đang tải...</h4>
+                        </div>
+                    </div>
+                    
+                    <div class="final-total-box">
+                        <span>Cần thanh toán</span>
+                        <strong id="final-pay-amount" style="color: #1a4fa0;">0đ</strong>
+                    </div>
+
+                    <button class="btn-submit-checkout" id="btn-process-payment" style="background:#d32f2f;">
+                        THANH TOÁN NGAY
+                    </button>
+                    
+                    <button type="button" onclick="downloadPDF()" id="btn-download-invoice-now" style="margin-top: 12px; width: 100%; padding: 12px; background: #2e7d32; color: #fff; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 10px rgba(46,125,50,0.2);">
+                        📄 XUẤT HÓA ĐƠN PDF
+                    </button>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+    
+    <div id="pdf-final-template" style="position: absolute; left: -9999px; top: 0; width: 680px; padding: 20px; background: white; font-family: sans-serif; color: #000;">
+    <style>
+        .pdf-header { text-align: center; border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 20px; }
+        .pdf-row { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; }
+        .pdf-box { border: 1px solid #ddd; padding: 15px; margin: 20px 0; background: #f9f9f9; }
+        .pdf-total { text-align: right; font-size: 18px; font-weight: bold; margin-top: 20px; }
+    </style>
+    
+    <div class="pdf-header">
+        <h2 style="margin: 0;">THE3COACHROCK TRAVEL</h2>
+        <p style="margin: 5px 0;">HÓA ĐƠN DỊCH VỤ / E-TICKET</p>
+    </div>
+
+    <div class="pdf-row"><span>Họ tên:</span> <b id="pdf-name">...</b></div>
+    <div class="pdf-row"><span>Điện thoại:</span> <b id="pdf-phone">...</b></div>
+    <div class="pdf-row"><span>Mã đơn:</span> <b id="pdf-id">...</b></div>
+
+    <div class="pdf-box">
+        <p style="margin:0;">Chi tiết đơn hàng:</p>
+        <b id="pdf-details">...</b>
+    </div>
+
+    <div class="pdf-total">
+        TỔNG TIỀN: <span id="pdf-total">0đ</span>
+    </div>
+</div>
+
+
+    <div id="footer-component"></div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+
+    <script src="js/xac-nhan.js"></script>
+</body>
+</html>

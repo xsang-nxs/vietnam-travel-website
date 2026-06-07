@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang cá nhân thành viên - The3Coachrock</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+
+    <div id="header-component"></div>
+
+    <main class="profile-page-bg">
+        <div class="profile-grid">
+            
+            <aside class="profile-sidebar">
+                <div class="profile-user-summary">
+                    <div class="profile-avatar-circle">
+                        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="User Avatar">
+                    </div>
+                    <h3 id="side-username">Khách hàng</h3>
+                    <span class="profile-role-pill" id="side-role">Thành viên</span>
+                </div>
+
+                <nav class="profile-nav-menu">
+                    <button class="profile-nav-btn active" onclick="toggleSubMenu('menu-account', this)" type="button">
+                        <span>👤 Thông tin tài khoản</span> <span class="nav-arrow">▲</span>
+                    </button>
+                    <div class="profile-sub-menu" id="menu-account" style="display: flex;">
+                        <button class="profile-sub-item active" onclick="switchProfileTab('info', this)" type="button">Hồ sơ cá nhân</button>
+                        <button class="profile-sub-item" onclick="switchProfileTab('password', this)" type="button">Đổi mật khẩu</button>
+                    </div>
+
+                    <button class="profile-nav-btn" onclick="toggleSubMenu('menu-orders', this)" type="button" style="margin-top: 10px;">
+                        <span>📋 Đơn hàng của tôi</span> <span class="nav-arrow">▼</span>
+                    </button>
+                    <div class="profile-sub-menu" id="menu-orders" style="display: none;">
+                        <button class="profile-sub-item" onclick="switchProfileTab('orders-tour', this)" type="button">Tour du lịch</button>
+                        <button class="profile-sub-item" onclick="switchProfileTab('orders-ticket', this)" type="button">Vé tham quan</button>
+                    </div>
+
+                    <button class="profile-nav-btn" onclick="switchProfileTab('notif', this)" type="button" style="margin-top: 10px;">
+                        <span>🔔 Thông báo</span>
+                    </button>
+                </nav>
+            </aside>
+
+            <section class="profile-content-area">
+                
+                <div id="p-tab-info" class="profile-content-card">
+                    <h2>Hồ sơ cá nhân</h2>
+                    <form id="profile-edit-form">
+                        <div class="profile-form-row">
+                            <label for="p-lastName">Họ <span class="required">*</span></label>
+                            <input type="text" id="p-lastName" class="profile-input-box" required placeholder="Nhập họ...">
+                        </div>
+                        <div class="profile-form-row">
+                            <label for="p-firstName">Tên <span class="required">*</span></label>
+                            <input type="text" id="p-firstName" class="profile-input-box" required placeholder="Nhập tên...">
+                        </div>
+                        <div class="profile-form-row">
+                            <label for="p-phone">Số điện thoại</label>
+                            <div class="input-action-wrapper">
+                                <input type="tel" id="p-phone" class="profile-input-box" readonly>
+                                <span class="input-link-btn" id="btn-change-phone">Thay đổi</span>
+                            </div>
+                        </div>
+                        <div class="profile-form-row">
+                            <label for="p-email">Email</label>
+                            <div class="input-action-wrapper">
+                                <input type="email" id="p-email" class="profile-input-box" readonly>
+                                <span class="input-link-btn" id="btn-change-email">Thay đổi</span>
+                            </div>
+                        </div>
+                        <div class="profile-form-row">
+                            <label>Giới tính</label>
+                            <div class="gender-radio-group">
+                                <label class="gender-label">
+                                    <input type="radio" name="p-gender" value="Nam" id="gender-male"> Nam
+                                </label>
+                                <label class="gender-label">
+                                    <input type="radio" name="p-gender" value="Nữ" id="gender-female"> Nữ
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-profile-save">LƯU THAY ĐỔI</button>
+                    </form>
+                </div>
+
+                <div id="p-tab-password" class="profile-content-card" style="display: none;">
+                    <h2 style="font-size: 26px; color: #4a5568; margin-bottom: 30px; border: none;">Đổi mật khẩu</h2>
+                    
+                    <form id="password-change-form" style="max-width: 700px;">
+                        
+                        <div style="display: grid; grid-template-columns: 200px 1fr; align-items: center; margin-bottom: 25px;">
+                            <label style="font-size: 15px; color: #4a5568; font-weight: 500;">Mật khẩu hiện tại <span class="required">*</span></label>
+                            <input type="password" id="current-password" class="profile-input-box" required placeholder="Nhập mật khẩu hiện tại">
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 200px 1fr; align-items: center; margin-bottom: 25px;">
+                            <label style="font-size: 15px; color: #4a5568; font-weight: 500;">Mật khẩu mới <span class="required">*</span></label>
+                            <input type="password" id="new-password" class="profile-input-box" required placeholder="Nhập mật khẩu mới">
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 200px 1fr; align-items: center; margin-bottom: 35px;">
+                            <label style="font-size: 15px; color: #4a5568; font-weight: 500;">Nhập lại mật khẩu mới <span class="required">*</span></label>
+                            <input type="password" id="confirm-password" class="profile-input-box" required placeholder="Nhập lại mật khẩu mới">
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn-profile-save" style="margin: 0 auto; background-color: #b33939; padding: 12px 35px; border-radius: 6px; box-shadow: none;">LƯU THAY ĐỔI</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="p-tab-orders-tour" class="profile-content-card" style="display: none;">
+                    <h2>Lịch sử đặt Tour du lịch</h2>
+                    <div id="my-tours-container">
+                        <p style="color:#718096; text-align:center; padding:20px;">Đang quét thông tin đơn đặt tour...</p>
+                    </div>
+                </div>
+
+                <div id="p-tab-orders-ticket" class="profile-content-card" style="display: none;">
+                    <h2>Lịch sử đặt Vé tham quan</h2>
+                    <div id="my-tickets-container">
+                        <p style="color:#718096; text-align:center; padding:20px;">Đang quét thông tin đơn đặt vé...</p>
+                    </div>
+                </div>
+
+                <div id="p-tab-notif" class="profile-content-card" style="display: none;">
+                    <h2 style="font-size: 24px; color: #2d3748; margin-bottom: 20px; border: none;">Thông báo của bạn</h2>
+                    
+                    <div id="notification-list" style="background: #fff; border-radius: 8px;">
+                        </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <div id="footer-component"></div>
+
+    <script src="js/components.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

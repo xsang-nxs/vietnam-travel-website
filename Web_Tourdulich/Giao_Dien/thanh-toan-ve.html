@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thanh Toán Vé Tham Quan - The3Coachrock</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/thanh-toan.css"> </head>
+<body>
+
+    <header class="checkout-header">
+        <div class="checkout-header-container">
+            <div class="checkout-logo" onclick="window.location.href='main.html'">The3Coachrock</div>
+            <div class="stepper-nav">
+                <div class="step-item active"><span class="step-num">1</span> Nhập thông tin</div>
+                <div class="step-arrow">❯</div>
+                <div class="step-item"><span class="step-num">2</span> Thanh toán</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="margin-top: 30px;">
+        <div class="back-home-wrapper">
+            <button type="button" class="btn-back-home" onclick="window.location.href='main.html'">
+                ← Quay về trang chủ
+            </button>
+        </div>
+
+        <div class="checkout-grid-layout">
+            <h1>Thanh toán vé tham quan</h1>
+            <p>Vui lòng điền thông tin người nhận vé điện tử (E-ticket) chính xác dưới đây.</p>
+        </div>
+
+        <div class="checkout-grid-layout">
+            
+            <div class="checkout-form-section">
+                <div class="checkout-card">
+                    <div class="card-head"><h3>Thông tin người đặt vé</h3></div>
+                    <div class="card-body">
+                        <div class="form-row-2">
+                            <div class="input-block">
+                                <label>Họ tên khách hàng <span class="req">*</span></label>
+                                <input type="text" id="ticket-user-name" placeholder="Ví dụ: Phạm Thùy Dương">
+                            </div>
+                            <div class="input-block">
+                                <label>Số điện thoại di động <span class="req">*</span></label>
+                                <input type="text" id="ticket-user-phone" placeholder="Ví dụ: 0393742xxx">
+                            </div>
+                        </div>
+                        <div class="form-row-2">
+                            <div class="input-block">
+                                <label>Địa chỉ Email (Nhận E-ticket) <span class="req">*</span></label>
+                                <input type="email" id="ticket-user-email" placeholder="Ví dụ: duong@gmail.com">
+                            </div>
+                            <div class="input-block">
+                                <label>Địa chỉ thường trú</label>
+                                <input type="text" id="ticket-user-address" placeholder="Nhập địa chỉ của bạn...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-card">
+                    <div class="card-head"><h3>Yêu cầu đặc biệt (Ghi chú)</h3></div>
+                    <div class="card-body">
+                        <textarea id="ticket-user-notes" rows="4" placeholder="Ví dụ: Cần xuất hóa đơn VAT, hỗ trợ lối đi xe lăn..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="checkout-summary-sidebar">
+                <div class="sticky-summary-card">
+                    <h3>Chi tiết giỏ vé</h3>
+                    
+                    <div id="ticket-summary-list" style="max-height: 280px; overflow-y: auto; margin-bottom: 20px;">
+                        </div>
+
+                    <div class="final-total-box" style="border-top: 1px dashed #edf2f7; padding-top: 15px;">
+                        <span>Tổng tiền vé</span>
+                        <strong id="ticket-final-price" style="color: #d32f2f; font-size: 22px;">0đ</strong>
+                    </div>
+
+                    <label class="terms-label">
+                        <input type="checkbox" id="ticket-chk-terms" checked>
+                        <span>Tôi đồng ý với điều khoản dịch vụ mua vé điện tử.</span>
+                    </label>
+
+                    <button class="btn-submit-checkout" id="btn-ticket-next" style="background: #ff9800; box-shadow: 0 4px 12px rgba(255,152,0,0.2);">
+                        TIẾP TỤC THANH TOÁN ➔
+                    </button>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <div id="footer-component"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/components.js"></script>
+    <script src="js/thanh-toan-ve.js"></script>
+</body>
+</html>

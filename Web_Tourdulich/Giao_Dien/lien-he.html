@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Liên Hệ - The3Coachrock</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div id="header-component"></div>
+
+    <section class="contact-hero">
+        <div class="container">
+            <h1>LIÊN HỆ VỚI CHÚNG TÔI</h1>
+            <p>The3Coachrock luôn sẵn sàng lắng nghe và hỗ trợ bạn 24/7</p>
+        </div>
+    </section>
+
+    <main class="container contact-page-main">
+
+        <div class="contact-grid">
+
+            <!-- CỘT TRÁI: THÔNG TIN LIÊN HỆ -->
+            <div class="contact-info-card">
+                <h3>Thông tin liên hệ</h3>
+
+                <div class="contact-info-list">
+                    <div class="info-item">
+                        <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                        <div class="info-content">
+                            <p>
+                                <strong>Trụ sở chính:</strong>
+                                <span id="contact-address">123 Đường Nguyễn Văn Cừ, Quận 1, TP. Hồ Chí Minh</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="icon"><i class="fa-solid fa-phone"></i></span>
+                        <div class="info-content">
+                            <p>
+                                <strong>Hotline:</strong>
+                                <span id="contact-hotline">1900 1234 (Hỗ trợ 24/7)</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                        <div class="info-content">
+                            <p>
+                                <strong>Email:</strong>
+                                <span id="contact-email">contact@the3coachrock.com</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-contact">
+                    <p>Kết nối với chúng tôi:</p>
+
+                    <div class="social-icons-row">
+                        <a href="#" class="social-icon-circle facebook" title="Facebook">f</a>
+                        <a href="#" class="social-icon-circle instagram" title="Instagram">◎</a>
+                        <a href="#" class="social-icon-circle youtube" title="YouTube">▶</a>
+                        <a href="#" class="social-icon-circle tiktok" title="TikTok">♪</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CỘT PHẢI: FORM LIÊN HỆ -->
+            <div class="contact-form-card">
+                <h3>Gửi tin nhắn cho chúng tôi</h3>
+                <p class="form-subtitle">
+                    Điền thông tin bên dưới, đội ngũ The3Coachrock sẽ phản hồi bạn sớm nhất.
+                </p>
+
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="contact-name-input">Họ và tên <span>*</span></label>
+                        <input type="text" id="contact-name-input" placeholder="Nhập họ tên của bạn">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact-email-input">Email <span>*</span></label>
+                            <input type="email" id="contact-email-input" placeholder="Ví dụ: contact@gmail.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-phone-input">Số điện thoại <span>*</span></label>
+                            <input type="tel" id="contact-phone-input" placeholder="Ví dụ: 0901234567">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-subject-input">Chủ đề</label>
+                        <select id="contact-subject-input">
+                            <option value="Tư vấn đặt tour">Tư vấn đặt tour</option>
+                            <option value="Hỗ trợ vé tham quan">Hỗ trợ vé tham quan</option>
+                            <option value="Khiếu nại/Góp ý">Khiếu nại/Góp ý</option>
+                            <option value="Hợp tác đại lý">Hợp tác đại lý</option>
+                            <option value="Khác">Khác</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-message-input">Lời nhắn <span>*</span></label>
+                        <textarea id="contact-message-input" rows="5" placeholder="Bạn cần chúng tôi hỗ trợ vấn đề gì?"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit-contact">
+                        GỬI YÊU CẦU
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- MAP -->
+        <div class="contact-map-card">
+            <div class="map-title">
+                <h3>Bản đồ trụ sở The3Coachrock</h3>
+                <p>123 Đường Nguyễn Văn Cừ, Quận 1, TP. Hồ Chí Minh</p>
+            </div>
+
+            <iframe 
+                id="contact-map-frame"
+                src="https://www.google.com/maps?q=123%20%C4%90%C6%B0%E1%BB%9Dng%20Nguy%E1%BB%85n%20V%C4%83n%20C%E1%BB%AD%2C%20Qu%E1%BA%ADn%201%2C%20TP.%20H%E1%BB%93%20Ch%C3%AD%20Minh&output=embed"
+                width="100%" 
+                height="430" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/components.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>
+                   
